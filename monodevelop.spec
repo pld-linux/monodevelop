@@ -1,24 +1,26 @@
 Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
-Version:	0.4
-Release:	1
+Version:	0.5
+Release:	0.9
 License:	GPL
 Group:		Development/Tools
-Source0:	http://go-mono.com/archive/beta2/%{name}-%{version}.tar.gz
-# Source0-md5:	b57c29af39bfc44842799cc211d6564d
+Source0:	http://mono2.ximian.com/archive/1.0/%{name}-%{version}.tar.gz
+# Source0-md5:	91d1eb4fe7a52ac1b55fd78dec34bfc1
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
+Patch1:		%{name}-mint.patch
+Patch2:		%{name}-libdir.patch
 URL:		http://www.monodevelop.com/
 BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
-BuildRequires:	dotnet-gtk-sharp-devel >= 0.93
-BuildRequires:	dotnet-gtksourceview-sharp-devel >= 0.3
+BuildRequires:	dotnet-gtk-sharp-devel >= 1.0
+BuildRequires:	dotnet-gtksourceview-sharp-devel >= 0.5
 BuildRequires:	libtool
 BuildRequires:	mono-csharp
-BuildRequires:	mono-devel >= 0.95
-BuildRequires:	monodoc >= 0.16
-BuildRequires:	dotnet-gecko-sharp-devel >= 0.4
+BuildRequires:	mono-devel >= 1.0
+BuildRequires:	monodoc >= 1.0
+BuildRequires:	dotnet-gecko-sharp-devel >= 0.5
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
 Requires:	dotnet-gtksourceview-sharp
@@ -70,6 +72,8 @@ mo¿liwo¶ci, a w¶ród nich:
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 # ignore errors from it
 sed -e 's/update-mime-database/-&/' -i Makefile.am
 
