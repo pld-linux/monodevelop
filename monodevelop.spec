@@ -1,24 +1,27 @@
 Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
-Version:	0.2
+Version:	0.3
 Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	http://go-mono.com/archive/%{name}-%{version}.tar.gz
-# Source0-md5:	2c2ca5b3e951e2aa46d0433470cee391
+# Source0-md5:	340dd8dc110e2384409211b8ed198f68
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 URL:		http://www.monodevelop.com/
 BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
-BuildRequires:	gtk-sharp-devel >= 0.17
-BuildRequires:	gtksourceview-sharp-devel
+BuildRequires:	dotnet-gtk-devel >= 0.91.1
+BuildRequires:	dotnet-gtksourceview-devel >= 0.2
 BuildRequires:	libtool
 BuildRequires:	mono-csharp
 BuildRequires:  mono-devel
-BuildRequires:	mozilla-devel
-Requires:	gtksourceview-sharp
+BuildRequires:  monodoc >= 0.15
+BuildRequires:	dotnet-gecko-devel >= 0.2
+BuildRequires:	shared-mime-info
+Requires:	dotnet-gtksourceview
+Requires(post,postun):	shared-mime-info
 Obsoletes:	MonoDevelop
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -66,6 +69,8 @@ mo¿liwo¶ci, a w¶ród nich:
 %prep
 %setup -q
 %patch0 -p1
+# ignore errors from it
+sed -e 's/update-mime-database/-&/' -i Makefile.am
 
 %build
 rm -rf autom4te.cache
@@ -83,15 +88,22 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%post
+update-mime-database %{_datadir}/mime
+
+%postun
+update-mime-database %{_datadir}/mime
+
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc KNOWN_ISSUES README TODO
+%doc README
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/%{name}
-%{_datadir}/application-registry/*
-%{_datadir}/mime-info/*
+%{_datadir}/mime/packages/*
 %{_desktopdir}/*
 %{_pixmapsdir}/*
