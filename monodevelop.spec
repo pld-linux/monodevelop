@@ -1,4 +1,4 @@
-%define		monoversion	1.0.2
+%define		monoversion	1.1.5
 Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
