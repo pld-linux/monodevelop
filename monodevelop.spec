@@ -16,8 +16,8 @@ BuildRequires:	dotnet-gtk-devel >= 0.91.1
 BuildRequires:	dotnet-gtksourceview-devel >= 0.2
 BuildRequires:	libtool
 BuildRequires:	mono-csharp
-BuildRequires:  mono-devel
-BuildRequires:  monodoc >= 0.15
+BuildRequires:	mono-devel
+BuildRequires:	monodoc >= 0.15
 BuildRequires:	dotnet-gecko-devel >= 0.2
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
