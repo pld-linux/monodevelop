@@ -17,8 +17,7 @@ BuildRequires:	automake >= 1.7
 BuildRequires:	dotnet-gtk-sharp-devel >= 1.0
 BuildRequires:	dotnet-gtksourceview-sharp-devel >= 0.5
 BuildRequires:	libtool
-BuildRequires:	mono-csharp
-BuildRequires:	mono-devel >= 1.0
+BuildRequires:	mono-csharp >= 1.0
 BuildRequires:	monodoc >= 1.0
 BuildRequires:	dotnet-gecko-sharp-devel >= 0.5
 BuildRequires:	sed >= 4.0
