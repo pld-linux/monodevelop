@@ -16,7 +16,7 @@ Patch3:		%{name}-desktop.patch
 URL:		http://www.monodevelop.com/
 BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
-BuildRequires:	automake >= 1.7
+BuildRequires:	automake >= 1:1.7
 BuildRequires:	dotnet-gtk-sharp-devel >= 1.0
 BuildRequires:	dotnet-gtksourceview-sharp-devel >= 0.5
 BuildRequires:	intltool
