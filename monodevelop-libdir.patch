@@ -1,6 +1,204 @@
+diff -Nuard monodevelop-0.5.orig/build/AddIns/AddIns/BackendBindings/Makefile.am monodevelop-0.5/build/AddIns/AddIns/BackendBindings/Makefile.am
+--- monodevelop-0.5.orig/build/AddIns/AddIns/BackendBindings/Makefile.am	2004-06-27 06:03:48.000000000 +0200
++++ monodevelop-0.5/build/AddIns/AddIns/BackendBindings/Makefile.am	2004-07-04 11:07:05.332357440 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ backendbindingsdir = $(monodevelopdir)/AddIns/AddIns/BackendBindings
+ 
+ backendbindings_DATA = BackendBindings.addin.xml
+diff -Nuard monodevelop-0.5.orig/build/AddIns/AddIns/Misc/StartPage/Makefile.am monodevelop-0.5/build/AddIns/AddIns/Misc/StartPage/Makefile.am
+--- monodevelop-0.5.orig/build/AddIns/AddIns/Misc/StartPage/Makefile.am	2004-06-27 06:03:48.000000000 +0200
++++ monodevelop-0.5/build/AddIns/AddIns/Misc/StartPage/Makefile.am	2004-07-04 11:06:57.490549576 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ startpagedir = $(monodevelopdir)/AddIns/AddIns/Misc/StartPage
+ 
+ startpage_DATA = StartPage.addin.xml
+diff -Nuard monodevelop-0.5.orig/build/AddIns/Makefile.am monodevelop-0.5/build/AddIns/Makefile.am
+--- monodevelop-0.5.orig/build/AddIns/Makefile.am	2004-06-27 06:03:49.000000000 +0200
++++ monodevelop-0.5/build/AddIns/Makefile.am	2004-07-04 11:06:47.581056048 +0200
+@@ -1,6 +1,6 @@
+ SUBDIRS = AddIns
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ addindir = $(monodevelopdir)/AddIns
+ 
+ addin_DATA = MonoDevelopNewEditor.addin.xml SharpDevelopCore.addin.xml
+diff -Nuard monodevelop-0.5.orig/build/data/options/Makefile.am monodevelop-0.5/build/data/options/Makefile.am
+--- monodevelop-0.5.orig/build/data/options/Makefile.am	2004-06-27 06:04:08.000000000 +0200
++++ monodevelop-0.5/build/data/options/Makefile.am	2004-07-04 11:07:14.748925904 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ mdoptionsdir = $(monodevelopdir)/data/options
+ mdoptions_DATA = DefaultEditingLayout.xml \
+ 	MonoDevelopProperties.xml \
+diff -Nuard monodevelop-0.5.orig/build/data/resources/css/Makefile.am monodevelop-0.5/build/data/resources/css/Makefile.am
+--- monodevelop-0.5.orig/build/data/resources/css/Makefile.am	2004-06-27 06:03:51.000000000 +0200
++++ monodevelop-0.5/build/data/resources/css/Makefile.am	2004-07-04 11:07:30.201576744 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ cssdir = $(monodevelopdir)/data/resources/css
+ 
+ css_DATA = MsdnHelp.css SharpDevelopStandard.css
+diff -Nuard monodevelop-0.5.orig/build/data/resources/icons/Makefile.am monodevelop-0.5/build/data/resources/icons/Makefile.am
+--- monodevelop-0.5.orig/build/data/resources/icons/Makefile.am	2004-06-27 06:04:06.000000000 +0200
++++ monodevelop-0.5/build/data/resources/icons/Makefile.am	2004-07-04 11:07:39.909100976 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ iconsdir = $(monodevelopdir)/data/resources/icons
+ 
+ icons_DATA = C\#.File.EmptyFile \
+diff -Nuard monodevelop-0.5.orig/build/data/resources/languages/Makefile.am monodevelop-0.5/build/data/resources/languages/Makefile.am
+--- monodevelop-0.5.orig/build/data/resources/languages/Makefile.am	2004-06-27 06:03:51.000000000 +0200
++++ monodevelop-0.5/build/data/resources/languages/Makefile.am	2004-07-04 11:07:35.244810056 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ langdir = $(monodevelopdir)/data/resources/languages
+ 
+ lang_DATA = LanguageDefinition.xml
+diff -Nuard monodevelop-0.5.orig/build/data/templates/file/CSharp/Makefile.am monodevelop-0.5/build/data/templates/file/CSharp/Makefile.am
+--- monodevelop-0.5.orig/build/data/templates/file/CSharp/Makefile.am	2004-06-27 06:04:09.000000000 +0200
++++ monodevelop-0.5/build/data/templates/file/CSharp/Makefile.am	2004-07-04 11:07:51.004414232 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ cstemplatedir = $(monodevelopdir)/data/templates/file/CSharp
+ 
+ cstemplate_DATA = CSharpSessionStateWebService.xft \
+diff -Nuard monodevelop-0.5.orig/build/data/templates/file/Makefile.am monodevelop-0.5/build/data/templates/file/Makefile.am
+--- monodevelop-0.5.orig/build/data/templates/file/Makefile.am	2004-06-27 06:04:10.000000000 +0200
++++ monodevelop-0.5/build/data/templates/file/Makefile.am	2004-07-04 11:07:47.192993656 +0200
+@@ -1,6 +1,6 @@
+ SUBDIRS = CSharp SharpDevelop Nemerle
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ templatedir = $(monodevelopdir)/data/templates/file
+ 
+ template_DATA = EmptyHTMLFile.xft \
+diff -Nuard monodevelop-0.5.orig/build/data/templates/file/Nemerle/Makefile.am monodevelop-0.5/build/data/templates/file/Nemerle/Makefile.am
+--- monodevelop-0.5.orig/build/data/templates/file/Nemerle/Makefile.am	2004-06-27 06:04:09.000000000 +0200
++++ monodevelop-0.5/build/data/templates/file/Nemerle/Makefile.am	2004-07-04 11:07:57.526422736 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ cstemplatedir = $(monodevelopdir)/data/templates/file/Nemerle
+ 
+ cstemplate_DATA = \
+diff -Nuard monodevelop-0.5.orig/build/data/templates/file/SharpDevelop/Makefile.am monodevelop-0.5/build/data/templates/file/SharpDevelop/Makefile.am
+--- monodevelop-0.5.orig/build/data/templates/file/SharpDevelop/Makefile.am	2004-06-27 06:04:10.000000000 +0200
++++ monodevelop-0.5/build/data/templates/file/SharpDevelop/Makefile.am	2004-07-04 11:07:54.442891504 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ mdtemplatedir = $(monodevelopdir)/data/templates/file/SharpDevelop
+ 
+ mdtemplate_DATA = ExampleMenuCommand.xft \
+diff -Nuard monodevelop-0.5.orig/build/data/templates/project/CSharp/Makefile.am monodevelop-0.5/build/data/templates/project/CSharp/Makefile.am
+--- monodevelop-0.5.orig/build/data/templates/project/CSharp/Makefile.am	2004-06-27 06:04:10.000000000 +0200
++++ monodevelop-0.5/build/data/templates/project/CSharp/Makefile.am	2004-07-04 11:08:01.679791328 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ cstemplatedir = $(monodevelopdir)/data/templates/project/CSharp
+ 
+ cstemplate_DATA = ConsoleProject.xpt \
+diff -Nuard monodevelop-0.5.orig/build/data/templates/project/ILAsm/Makefile.am monodevelop-0.5/build/data/templates/project/ILAsm/Makefile.am
+--- monodevelop-0.5.orig/build/data/templates/project/ILAsm/Makefile.am	2004-06-27 06:04:10.000000000 +0200
++++ monodevelop-0.5/build/data/templates/project/ILAsm/Makefile.am	2004-07-04 11:08:13.022067040 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ misctemplatedir = $(monodevelopdir)/data/templates/project/ILAsm
+ 
+ misctemplate_DATA = ConsoleProject.xpt
+diff -Nuard monodevelop-0.5.orig/build/data/templates/project/Java/Makefile.am monodevelop-0.5/build/data/templates/project/Java/Makefile.am
+--- monodevelop-0.5.orig/build/data/templates/project/Java/Makefile.am	2004-06-27 06:04:10.000000000 +0200
++++ monodevelop-0.5/build/data/templates/project/Java/Makefile.am	2004-07-04 11:08:08.320781744 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ javatemplatedir = $(monodevelopdir)/data/templates/project/Java
+ 
+ javatemplate_DATA = EmptyJavaProject.xpt \
+diff -Nuard monodevelop-0.5.orig/build/data/templates/project/Misc/Makefile.am monodevelop-0.5/build/data/templates/project/Misc/Makefile.am
+--- monodevelop-0.5.orig/build/data/templates/project/Misc/Makefile.am	2004-06-27 06:04:10.000000000 +0200
++++ monodevelop-0.5/build/data/templates/project/Misc/Makefile.am	2004-07-04 11:08:04.734326968 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ misctemplatedir = $(monodevelopdir)/data/templates/project/Misc
+ 
+ misctemplate_DATA = BlankCombine.xpt
+diff -Nuard monodevelop-0.5.orig/build/data/templates/project/Nemerle/Makefile.am monodevelop-0.5/build/data/templates/project/Nemerle/Makefile.am
+--- monodevelop-0.5.orig/build/data/templates/project/Nemerle/Makefile.am	2004-06-27 06:04:10.000000000 +0200
++++ monodevelop-0.5/build/data/templates/project/Nemerle/Makefile.am	2004-07-04 11:08:16.410551912 +0200
+@@ -1,5 +1,5 @@
+ 
+-monodevelopdir = $(prefix)/lib/monodevelop
++monodevelopdir = $(libdir)/monodevelop
+ cstemplatedir = $(monodevelopdir)/data/templates/project/Nemerle
+ 
+ cstemplate_DATA = \
+diff -Nuard monodevelop-0.5.orig/gdldock/gdl/Makefile.am monodevelop-0.5/gdldock/gdl/Makefile.am
+--- monodevelop-0.5.orig/gdldock/gdl/Makefile.am	2004-06-27 06:04:20.000000000 +0200
++++ monodevelop-0.5/gdldock/gdl/Makefile.am	2004-07-04 11:04:09.831037696 +0200
+@@ -39,7 +39,7 @@
+ 	&& cp -p $(ASSEMBLY) ../../build/bin/. \
+ 	&& cp -p $(srcdir)/$(ASSEMBLY).config ../../build/bin/.
+ 
+-gdldocklibdir = $(prefix)/lib/monodevelop/bin
++gdldocklibdir = $(libdir)/monodevelop/bin
+ gdldocklib_DATA = $(ASSEMBLY) $(ASSEMBLY).config
+ 
+ clean-local:
+diff -Nuard monodevelop-0.5.orig/gdldock/sources/gdl/Makefile.am monodevelop-0.5/gdldock/sources/gdl/Makefile.am
+--- monodevelop-0.5.orig/gdldock/sources/gdl/Makefile.am	2004-06-27 06:04:19.000000000 +0200
++++ monodevelop-0.5/gdldock/sources/gdl/Makefile.am	2004-07-04 11:03:39.292680232 +0200
+@@ -4,7 +4,7 @@
+ 	-DGDL_IMAGESDIR=\"$(srcdir)/.\"			\
+ 	$(GDLDOCK_CFLAGS)
+ 
+-gdldocklibdir = $(prefix)/lib/monodevelop/bin
++gdldocklibdir = $(libdir)/monodevelop/bin
+ gdldocklib_DATA = $(dist_gdldocklib)
+ 
+ gdldocklib_LTLIBRARIES = libgdldock.la
+diff -Nuard monodevelop-0.5.orig/libmonodevelop/Makefile.am monodevelop-0.5/libmonodevelop/Makefile.am
+--- monodevelop-0.5.orig/libmonodevelop/Makefile.am	2004-06-27 06:04:29.000000000 +0200
++++ monodevelop-0.5/libmonodevelop/Makefile.am	2004-07-04 11:04:38.384696880 +0200
+@@ -2,7 +2,7 @@
+ 	-I$(top_srcdir)						\
+ 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"
+ 
+-monodeveloplibdir = $(prefix)/lib/monodevelop/bin
++monodeveloplibdir = $(libdir)/monodevelop/bin
+ monodeveloplib_LTLIBRARIES = libmonodevelop.la
+ 
+ libmonodevelop_la_SOURCES =		\
 diff -Nuard monodevelop-0.5.orig/monodevelop.in monodevelop-0.5/monodevelop.in
 --- monodevelop-0.5.orig/monodevelop.in	2004-06-27 06:03:48.000000000 +0200
-+++ monodevelop-0.5/monodevelop.in	2004-07-04 08:45:50.673470032 +0200
++++ monodevelop-0.5/monodevelop.in	2004-07-04 11:06:14.469089832 +0200
 @@ -27,7 +27,7 @@
  	exit 1
  fi
