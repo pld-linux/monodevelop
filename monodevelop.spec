@@ -2,7 +2,7 @@ Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
 Version:	0.5
-Release:	0.9
+Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	http://mono2.ximian.com/archive/1.0/%{name}-%{version}.tar.gz
@@ -23,7 +23,12 @@ BuildRequires:	monodoc >= 1.0
 BuildRequires:	dotnet-gecko-sharp-devel >= 0.5
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
+Requires:	mono
+Requires:	monodoc
+Requires:	mozilla-embedded
 Requires:	dotnet-gtksourceview-sharp
+Requires:	dotnet-gecko-sharp
+Requires:	dotnet-gtk-sharp
 Requires(post,postun):	shared-mime-info
 Obsoletes:	MonoDevelop
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
