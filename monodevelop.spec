@@ -18,6 +18,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
 BuildRequires:	dotnet-gtk-sharp-devel >= 1.0
 BuildRequires:	dotnet-gtksourceview-sharp-devel >= 0.5
+BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.0
 BuildRequires:	monodoc >= 1.0
