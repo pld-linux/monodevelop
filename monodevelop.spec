@@ -2,8 +2,8 @@
 Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
-Version:	0.5.1
-Release:	2
+Version:	0.6
+Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	http://mono2.ximian.com/archive/%{monoversion}/%{name}-%{version}.tar.gz
