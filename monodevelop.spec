@@ -8,7 +8,6 @@ License:	GPL
 Group:		Development/Tools
 Source0:	http://mono2.ximian.com/archive/%{monoversion}/%{name}-%{version}.tar.gz
 # Source0-md5:	0cf7524360913394ea7fa1bc434b7f0c
-# Source0-size:	1806990
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-libdir.patch
