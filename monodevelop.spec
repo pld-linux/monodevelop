@@ -1,16 +1,17 @@
+%define		monoversion	1.0.2
 Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
-Version:	0.5
-Release:	3
+Version:	0.5.1
+Release:	1
 License:	GPL
 Group:		Development/Tools
-Source0:	http://mono2.ximian.com/archive/1.0/%{name}-%{version}.tar.gz
-# Source0-md5:	91d1eb4fe7a52ac1b55fd78dec34bfc1
+Source0:	http://mono2.ximian.com/archive/%{monoversion}/%{name}-%{version}.tar.gz
+# Source0-md5:	d89458a2d909da09b2cc1f37e16d8990
+# Source0-size:	1806990
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
-Patch1:		%{name}-mint.patch
+Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-libdir.patch
-Patch3:		%{name}-locale_names.patch
 URL:		http://www.monodevelop.com/
 BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
@@ -80,7 +81,6 @@ mo¿liwo¶ci, a w¶ród nich:
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 # ignore errors from it
 sed -e 's/update-mime-database/-&/' -i Makefile.am
 
