@@ -34,7 +34,7 @@ diff -Nuard monodevelop-0.5.orig/configure.in monodevelop-0.5/configure.in
 +
 +if test "x$has_mono" = "xtrue"; then
 +    if test `uname -s` = "Darwin"; then
-+	AC_PATH_PROG(RUNTIME, mint, no)
++	AC_PATH_PROG(RUNTIME, mono, no)
 +	AC_PATH_PROG(CSC, mcs, no)
 +	LIB_PREFIX=
 +	LIB_SUFFIX=.dylib
