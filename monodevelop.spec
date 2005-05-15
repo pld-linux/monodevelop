@@ -10,19 +10,20 @@ Source0:	http://mono2.ximian.com/archive/%{monoversion}/%{name}-%{version}.tar.g
 # Source0-md5:	0cf7524360913394ea7fa1bc434b7f0c
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
-Patch2:		%{name}-libdir.patch
+#Patch2:		%{name}-libdir.patch
 Patch3:		%{name}-desktop.patch
+Patch4:		%{name}-install.patch
 URL:		http://www.monodevelop.com/
 BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
-BuildRequires:	dotnet-gtk-sharp-devel >= 1.0
-BuildRequires:	dotnet-gtksourceview-sharp-devel >= 0.5
+BuildRequires:	dotnet-gecko-sharp-devel >= 0.7
+BuildRequires:	dotnet-gtk-sharp-devel >= 1.9.2
+BuildRequires:	dotnet-gtksourceview-sharp-devel >= 0.7
 BuildRequires:	intltool
 BuildRequires:	libtool
-BuildRequires:	mono-csharp >= 1.0
+BuildRequires:	mono-csharp >= 1.1
 BuildRequires:	monodoc >= 1.0
-BuildRequires:	dotnet-gecko-sharp-devel >= 0.5
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
 Requires:	mono
@@ -81,10 +82,11 @@ mo¿liwo¶ci, a w¶ród nich:
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
+#%patch2 -p1
 %patch3 -p1
+%patch4	-p1
 # ignore errors from it
-sed -e 's/update-mime-database/-&/' -i Makefile.am
+#sed -e 's/update-mime-database/-&/' -i Makefile.am
 
 mv po/ja{_JP,}.po
 
