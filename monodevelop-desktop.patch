@@ -1,23 +1,15 @@
-diff -urN monodevelop-0.5.1.orig/monodevelop.desktop monodevelop-0.5.1/monodevelop.desktop
---- monodevelop-0.5.1.orig/monodevelop.desktop	2004-11-17 15:04:30.764794792 +0100
-+++ monodevelop-0.5.1/monodevelop.desktop	2004-11-17 15:09:57.228164816 +0100
-@@ -3,14 +3,17 @@
+--- monodevelop-0.6/monodevelop.desktop.orig	2005-03-21 20:49:17.000000000 +0100
++++ monodevelop-0.6/monodevelop.desktop	2005-05-13 23:48:17.000000000 +0200
+@@ -3,11 +3,11 @@
  Encoding=UTF-8
  Name=MonoDevelop
  GenericName=Integrated Development Environment
--Comment=Integrated Development Environment
-+GenericName[pl]=Zintegrowane Å›rodowisko programistyczne
-+Comment=Mono IDE
-+Comment[pl]=IDE dla Mono
++GenericName[pl]=Zintegrowane ¶rodowisko programistyczne
+ Comment=Integrated Development Environment
  Exec=monodevelop
  TryExec=monodevelop
  Icon=monodevelop.png
- StartupNotify=true
+-StartupNotify=true
  Terminal=false
  Type=Application
--Categories=Application;Development;
-+Categories=GTK;Development;IDE;
- X-GNOME-Bugzilla-Bugzilla=Ximian
- X-GNOME-Bugzilla-Product=MonoDevelop
- X-GNOME-Bugzilla-OtherBinaries=monodevelop
-+# vi: encoding=utf-8
+ MimeType=text/x-csharp;application/x-mds;application/x-mdp;application/x-cmbx;application/x-prjx;
