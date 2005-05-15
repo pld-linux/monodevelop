@@ -1,24 +1,22 @@
-diff -ur monodevelop-0.5.orig/configure monodevelop-0.5/configure
---- monodevelop-0.5.orig/configure	2004-06-29 21:19:39.000000000 +0200
-+++ monodevelop-0.5/configure	2004-09-19 23:50:43.000000000 +0200
-@@ -20182,7 +20182,7 @@
+--- monodevelop-0.6/configure.orig	2005-03-21 20:50:28.000000000 +0100
++++ monodevelop-0.6/configure	2005-05-14 00:09:25.000000000 +0200
+@@ -22200,7 +22200,7 @@
+ SQLITE_XML=
  fi
  
- 
--ALL_LINGUAS="da es fr ja_JP pt_BR"
-+ALL_LINGUAS="da es fr ja pt_BR"
+-ALL_LINGUAS="da es fr ja_JP pt_BR tr"
++ALL_LINGUAS="da es fr ja pt_BR tr"
  GETTEXT_PACKAGE=monodevelop
  
  
-diff -ur monodevelop-0.5.orig/configure.in monodevelop-0.5/configure.in
---- monodevelop-0.5.orig/configure.in	2004-09-19 23:25:42.000000000 +0200
-+++ monodevelop-0.5/configure.in	2004-09-19 23:50:48.000000000 +0200
-@@ -119,7 +119,7 @@
- AM_CONDITIONAL(ENABLE_XDGMIME, test "x$enable_xdgmime" = "xyes")
+--- monodevelop-0.6/configure.in.orig	2005-03-21 20:49:17.000000000 +0100
++++ monodevelop-0.6/configure.in	2005-05-14 00:08:31.000000000 +0200
+@@ -183,7 +183,7 @@
+ fi
  
  dnl Intl
--ALL_LINGUAS="da es fr ja_JP pt_BR"
-+ALL_LINGUAS="da es fr ja pt_BR"
+-ALL_LINGUAS="da es fr ja_JP pt_BR tr"
++ALL_LINGUAS="da es fr ja pt_BR tr"
  GETTEXT_PACKAGE=monodevelop
  AC_SUBST(GETTEXT_PACKAGE)
  AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
