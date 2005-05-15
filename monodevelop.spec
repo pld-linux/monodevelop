@@ -110,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-update-mime-database %{_datadir}/mime
+update-mime-database %{_datadir}/mime ||:
 
 %postun
 update-mime-database %{_datadir}/mime
