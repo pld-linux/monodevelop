@@ -20,10 +20,12 @@ BuildRequires:	automake >= 1:1.7
 BuildRequires:	dotnet-gecko-sharp-devel >= 0.10
 BuildRequires:	dotnet-gtk-sharp-devel >= 1.9.5
 BuildRequires:	dotnet-gtksourceview-sharp-devel >= 0.10
+BuildRequires:	gettext-devel
 BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1
 BuildRequires:	monodoc >= 1.0
+BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
 Requires:	mono
