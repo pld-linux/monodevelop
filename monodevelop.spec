@@ -1,4 +1,4 @@
-%define		monoversion	1.1.5
+%include	/usr/lib/rpm/macros.mono
 Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
@@ -18,7 +18,7 @@ BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	dotnet-gecko-sharp-devel >= 0.10
-BuildRequires:	dotnet-gtk-sharp-devel >= 1.9.5
+BuildRequires:	dotnet-gtk-sharp2-devel >= 1.9.5
 BuildRequires:	dotnet-gtksourceview-sharp-devel >= 0.10
 BuildRequires:	gettext-devel
 BuildRequires:	intltool
@@ -28,12 +28,7 @@ BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
-Requires:	mono
-Requires:	monodoc
 Requires:	mozilla-embedded
-Requires:	dotnet-gtksourceview-sharp
-Requires:	dotnet-gecko-sharp
-Requires:	dotnet-gtk-sharp
 Requires(post,postun):	shared-mime-info
 Obsoletes:	MonoDevelop
 ExcludeArch:	alpha
