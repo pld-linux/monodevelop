@@ -1,7 +1,7 @@
-diff -Nuard monodevelop-0.5.orig/monodevelop.in monodevelop-0.5/monodevelop.in
---- monodevelop-0.5.orig/monodevelop.in	2004-06-27 06:03:48.000000000 +0200
-+++ monodevelop-0.5/monodevelop.in	2004-07-04 11:58:51.216191328 +0200
-@@ -18,10 +18,12 @@
+diff -ruN monodevelop-0.8./monodevelop.in monodevelop-0.8/monodevelop.in
+--- monodevelop-0.8./monodevelop.in	2005-10-18 19:49:06.000000000 +0200
++++ monodevelop-0.8/monodevelop.in	2005-10-18 20:30:38.000314250 +0200
+@@ -18,12 +18,14 @@
  
  if test -n "$MOZILLA_FIVE_HOME"; then
  	MOZILLA_HOME=$MOZILLA_FIVE_HOME
@@ -11,8 +11,10 @@ diff -Nuard monodevelop-0.5.orig/monodevelop.in monodevelop-0.5/monodevelop.in
 +        MOZILLA_HOME=@MOZILLA_HOME@/mozilla
  elif [ $(which mozilla) ] && grep MOZILLA_FIVE_HOME= "$(which mozilla)" > /dev/null ; then
  	MOZILLA_HOME=$(grep MOZILLA_FIVE_HOME= $(which mozilla) | cut -d '"' -f 2)
+ elif [ $(which firefox) ] && grep MOZILLA_FIVE_HOME= "$(which firefox)" > /dev/null ; then
+ 	MOZILLA_HOME=$(grep MOZILLA_FIVE_HOME= $(which firefox) | cut -d '"' -f 2)
 +elif [ -f @libdir@/mozilla/chrome/comm.jar ]; then
-+        MOZILLA_HOME=@libdir@/mozilla
++	MOZILLA_HOME=@libdir@/mozilla
  else
  	echo "Cannot find mozilla installation directory. Please set MOZILLA_FIVE_HOME to your mozilla directory"
  	exit 1
