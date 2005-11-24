@@ -1,22 +1,22 @@
---- monodevelop-0.7/configure.orig	2005-05-16 19:18:33.000000000 +0200
-+++ monodevelop-0.7/configure	2005-05-19 17:00:50.000000000 +0200
-@@ -4446,7 +4446,7 @@
- SQLITE_XML=
+--- monodevelop-0.9/configure.orig	2005-11-23 21:45:25.000000000 +0100
++++ monodevelop-0.9/configure	2005-11-24 08:29:02.000000000 +0100
+@@ -4507,7 +4507,7 @@
  fi
  
--ALL_LINGUAS="cs da de es fr ja_JP pt_BR tr pl"
-+ALL_LINGUAS="cs da de es fr ja pt_BR tr pl"
+ 
+-ALL_LINGUAS="cs da de es fr ja_JP pt_BR tr pl it"
++ALL_LINGUAS="cs da de es fr ja pt_BR tr pl it"
  GETTEXT_PACKAGE=monodevelop
  
  
---- monodevelop-0.7/configure.in.orig	2005-05-15 22:11:04.000000000 +0200
-+++ monodevelop-0.7/configure.in	2005-05-19 17:02:38.000000000 +0200
-@@ -153,7 +153,7 @@
- fi
+--- monodevelop-0.9/configure.in.orig	2005-11-23 21:36:28.000000000 +0100
++++ monodevelop-0.9/configure.in	2005-11-24 08:26:45.000000000 +0100
+@@ -178,7 +178,7 @@
+    AM_CONDITIONAL(ENABLE_UPDATE_DESKTOPDB, test x$enable_update_desktopdb = xyes)
  
  dnl Intl
--ALL_LINGUAS="cs da de es fr ja_JP pt_BR tr pl"
-+ALL_LINGUAS="cs da de es fr ja pt_BR tr pl"
+-ALL_LINGUAS="cs da de es fr ja_JP pt_BR tr pl it"
++ALL_LINGUAS="cs da de es fr ja pt_BR tr pl it"
  GETTEXT_PACKAGE=monodevelop
  AC_SUBST(GETTEXT_PACKAGE)
  AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])

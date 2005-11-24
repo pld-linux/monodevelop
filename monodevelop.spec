@@ -2,12 +2,12 @@
 Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
-Version:	0.8
+Version:	0.9
 Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	http://go-mono.com/sources/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	23f7c636b8e9533799a33bdf25c37bdd
+# Source0-md5:	c89d5458b0c3b29cd310ebee73b0e595
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
 #Patch2:		%{name}-libdir.patch
@@ -18,7 +18,7 @@ BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	dotnet-gecko-sharp2-devel >= 0.10
-BuildRequires:	dotnet-gtk-sharp2-devel >= 2.5.92
+BuildRequires:	dotnet-gtk-sharp2-devel >= 2.6.0
 BuildRequires:	dotnet-gtksourceview-sharp-devel >= 0.10
 BuildRequires:	gettext-devel
 BuildRequires:	intltool
