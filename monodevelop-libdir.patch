@@ -1,9 +1,0 @@
---- monodevelop-0.5.1/build/AddIns/AddIns/Misc/Sonata/Makefile.am~	2004-07-05 21:24:35.000000000 +0000
-+++ monodevelop-0.5.1/build/AddIns/AddIns/Misc/Sonata/Makefile.am	2004-10-09 13:42:59.305372664 +0000
-@@ -1,5 +1,5 @@
- 
--monodevelopdir = $(prefix)/lib/monodevelop
-+monodevelopdir = $(libdir)/monodevelop
- startpagedir = $(monodevelopdir)/AddIns/AddIns/Misc/Sonata
- 
- startpage_DATA = Sonata.addin.xml
