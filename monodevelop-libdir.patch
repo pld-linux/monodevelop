@@ -1,3 +1,15 @@
+diff -aurN monodevelop-0.9.orig/Makefile.am monodevelop-0.9/Makefile.am
+--- monodevelop-0.9.orig/Makefile.am	2005-11-21 20:33:39.000000000 +0100
++++ monodevelop-0.9/Makefile.am	2005-11-30 21:24:07.000000000 +0100
+@@ -15,7 +15,7 @@
+ 
+ pkgconfig_in_files = monodevelop.pc.in
+ 
+-pkgconfigdir= $(prefix)/lib/pkgconfig
++pkgconfigdir= $(libdir)/pkgconfig
+ pkgconfig_DATA = $(pkgconfig_in_files:.pc.in=.pc)
+ 
+ if ENABLE_UPDATE_MIMEDB
 diff -aurN monodevelop-0.9.orig/monodevelop.pc.in monodevelop-0.9/monodevelop.pc.in
 --- monodevelop-0.9.orig/monodevelop.pc.in	2005-10-12 05:20:34.000000000 +0200
 +++ monodevelop-0.9/monodevelop.pc.in	2005-11-30 21:16:36.000000000 +0100
