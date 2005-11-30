@@ -1,0 +1,11 @@
+diff -aurN monodevelop-0.9.orig/monodevelop.pc.in monodevelop-0.9/monodevelop.pc.in
+--- monodevelop-0.9.orig/monodevelop.pc.in	2005-10-12 05:20:34.000000000 +0200
++++ monodevelop-0.9/monodevelop.pc.in	2005-11-30 21:16:36.000000000 +0100
+@@ -1,6 +1,6 @@
+ prefix=@prefix@
+ exec_prefix=${prefix}
+-libdir=${exec_prefix}/lib
++libdir=@libdir@
+                                                                                 
+ Name: MonoDevelop
+ Description: Free .NET Development Environment
