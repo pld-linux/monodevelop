@@ -1,3 +1,15 @@
+diff -aurN monodevelop-0.9.orig/configure.in monodevelop-0.9/configure.in
+--- monodevelop-0.9.orig/configure.in	2005-11-23 21:36:28.000000000 +0100
++++ monodevelop-0.9/configure.in	2005-11-30 21:57:19.000000000 +0100
+@@ -193,7 +193,7 @@
+ AC_SUBST(CSC_FLAGS)
+ 
+ 
+-MD_DIR='$(prefix)/lib/monodevelop'
++MD_DIR='$(libdir)/monodevelop'
+ MD_ASSEMBLY_DIR="$MD_DIR/bin"
+ MD_ADDIN_DIR="$MD_DIR/AddIns"
+ 
 diff -aurN monodevelop-0.9.orig/Makefile.am monodevelop-0.9/Makefile.am
 --- monodevelop-0.9.orig/Makefile.am	2005-11-21 20:33:39.000000000 +0100
 +++ monodevelop-0.9/Makefile.am	2005-11-30 21:24:07.000000000 +0100
@@ -10,6 +22,30 @@ diff -aurN monodevelop-0.9.orig/Makefile.am monodevelop-0.9/Makefile.am
  pkgconfig_DATA = $(pkgconfig_in_files:.pc.in=.pc)
  
  if ENABLE_UPDATE_MIMEDB
+diff -aurN monodevelop-0.9.orig/mdtool.in monodevelop-0.9/mdtool.in
+--- monodevelop-0.9.orig/mdtool.in	2005-11-18 14:13:33.000000000 +0100
++++ monodevelop-0.9/mdtool.in	2005-11-30 21:58:43.000000000 +0100
+@@ -16,12 +16,12 @@
+     echo "$ret"
+ }
+  
+-MD_BIN_PATH=@prefix@/lib/monodevelop/bin
++MD_BIN_PATH=@libdir@/monodevelop/bin
+ 
+ if [ -n $PKG_CONFIG_PATH ]; then
+-	export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:@gtksharp_prefix@/lib/pkgconfig/
++	export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:@libdir@/pkgconfig/
+ else
+-	export PKG_CONFIG_PATH=@gtksharp_prefix@/lib/pkgconfig/
++	export PKG_CONFIG_PATH=@libdir@/pkgconfig/
+ fi
+ 
+ ARGS=`reWrite "$@"`
+@@ -44,4 +44,3 @@
+ esac
+ 
+ exec @RUNTIME@ $MD_BIN_PATH/mdrun.exe $@
+-
 diff -aurN monodevelop-0.9.orig/monodevelop.pc.in monodevelop-0.9/monodevelop.pc.in
 --- monodevelop-0.9.orig/monodevelop.pc.in	2005-10-12 05:20:34.000000000 +0200
 +++ monodevelop-0.9/monodevelop.pc.in	2005-11-30 21:16:36.000000000 +0100
