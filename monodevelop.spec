@@ -12,6 +12,7 @@ Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-desktop.patch
 Patch3:		%{name}-install.patch
+Patch4:		%{name}-libdir.patch
 URL:		http://www.monodevelop.com/
 BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
@@ -75,6 +76,7 @@ mo¿liwo¶ci, a w¶ród nich:
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 mv po/ja{_JP,}.po
 
