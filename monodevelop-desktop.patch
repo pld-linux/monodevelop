@@ -1,12 +1,13 @@
-diff -aurN monodevelop-0.9.orig/monodevelop.desktop monodevelop-0.9/monodevelop.desktop
---- monodevelop-0.9.orig/monodevelop.desktop	2005-09-23 22:11:15.000000000 +0200
-+++ monodevelop-0.9/monodevelop.desktop	2005-11-30 20:29:02.000000000 +0100
-@@ -3,15 +3,16 @@
+diff -ur monodevelop-0.10/monodevelop.desktop monodevelop-0.10-desktop_patch/monodevelop.desktop
+--- monodevelop-0.10/monodevelop.desktop	2006-04-04 21:29:37.000000000 +0200
++++ monodevelop-0.10-desktop_patch/monodevelop.desktop	2006-04-05 18:13:56.000000000 +0200
+@@ -3,15 +3,17 @@
  Encoding=UTF-8
  Name=MonoDevelop
  GenericName=Integrated Development Environment
-+GenericName[pl]=Zintegrowane Åšrodowisko Programistyczne
- Comment=Integrated Development Environment
++GenericName[pl]=Zintegrowane ¦rodowisko Programistyczne
+ Comment=Develop .NET applications in an Integrated Development Environment
++Comment[pl]=Rozwijaj aplikacje .NET w Zintegrowanym ¦rodowisku Programistycznym
  Exec=monodevelop
  TryExec=monodevelop
 -Icon=monodevelop.png
@@ -20,3 +21,4 @@ diff -aurN monodevelop-0.9.orig/monodevelop.desktop monodevelop-0.9/monodevelop.
  X-GNOME-Bugzilla-Bugzilla=Ximian
  X-GNOME-Bugzilla-Product=MonoDevelop
  X-GNOME-Bugzilla-OtherBinaries=monodevelop
+Tylko w monodevelop-0.10-desktop_patch: monodevelop.desktop~
