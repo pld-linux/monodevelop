@@ -2,18 +2,17 @@
 Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
-Version:	0.9
-Release:	2
+Version:	0.10
+Release:	0.9
 License:	GPL
 Group:		Development/Tools
 Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.gz
-# Source0-md5:	c89d5458b0c3b29cd310ebee73b0e595
+# Source0-md5:	094132badd2be96c1aa3d3e072b1d01f
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-desktop.patch
 Patch3:		%{name}-install.patch
 Patch4:		%{name}-libdir.patch
-Patch5:		%{name}-Mono_Unix_fix.patch
 URL:		http://www.monodevelop.com/
 BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
@@ -78,7 +77,6 @@ mo¿liwo¶ci, a w¶ród nich:
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
 
 mv po/ja{_JP,}.po
 
@@ -91,7 +89,7 @@ rm -rf autom4te.cache
 %{__autoconf}
 %configure \
 	--disable-update-mimedb \
-	--disable-update-desktopdb
+	--disable-update-desktopdb 
 %{__make}
 
 %install
