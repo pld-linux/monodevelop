@@ -3,7 +3,7 @@ Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
 Version:	0.10
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Tools
 Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.gz
@@ -28,6 +28,7 @@ BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
+Requires:	gtkhtml
 Requires:	mozilla-embedded
 Requires(post,postun):	shared-mime-info
 Obsoletes:	MonoDevelop
