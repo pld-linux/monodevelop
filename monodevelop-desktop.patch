@@ -5,9 +5,9 @@ diff -ur monodevelop-0.10/monodevelop.desktop monodevelop-0.10-desktop_patch/mon
  Encoding=UTF-8
  Name=MonoDevelop
  GenericName=Integrated Development Environment
-+GenericName[pl]=Zintegrowane ¦rodowisko Programistyczne
++GenericName[pl]=Zintegrowane Åšrodowisko Programistyczne
  Comment=Develop .NET applications in an Integrated Development Environment
-+Comment[pl]=Rozwijaj aplikacje .NET w Zintegrowanym ¦rodowisku Programistycznym
++Comment[pl]=Rozwijaj aplikacje .NET w Zintegrowanym Åšrodowisku Programistycznym
  Exec=monodevelop
  TryExec=monodevelop
 -Icon=monodevelop.png
@@ -21,4 +21,3 @@ diff -ur monodevelop-0.10/monodevelop.desktop monodevelop-0.10-desktop_patch/mon
  X-GNOME-Bugzilla-Bugzilla=Ximian
  X-GNOME-Bugzilla-Product=MonoDevelop
  X-GNOME-Bugzilla-OtherBinaries=monodevelop
-Tylko w monodevelop-0.10-desktop_patch: monodevelop.desktop~
