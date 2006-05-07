@@ -1,24 +1,22 @@
-diff -ur monodevelop-0.10/configure monodevelop-0.10-locale_patch/configure
---- monodevelop-0.10/configure	2006-04-04 23:55:51.000000000 +0200
-+++ monodevelop-0.10-locale_patch/configure	2006-04-05 17:39:56.000000000 +0200
+--- monodevelop-0.11/configure~	2006-05-06 11:17:14.686161250 +0200
++++ monodevelop-0.11/configure	2006-05-06 11:20:03.672722250 +0200
 @@ -4619,7 +4619,7 @@
  fi
  
  
--ALL_LINGUAS="cs da de es fr ja_JP pt_BR tr pl it zh_TW"
-+ALL_LINGUAS="cs da de es fr ja pt_BR tr pl it zh_TW"
+-ALL_LINGUAS="cs da de es fr ja_JP pt_BR tr pl it zh_TW zh_CN ru"
++ALL_LINGUAS="cs da de es fr ja pt_BR tr pl it zh_TW zh_CN ru"
  GETTEXT_PACKAGE=monodevelop
  
  
-diff -ur monodevelop-0.10/configure.in monodevelop-0.10-locale_patch/configure.in
---- monodevelop-0.10/configure.in	2006-04-04 21:29:37.000000000 +0200
-+++ monodevelop-0.10-locale_patch/configure.in	2006-04-05 17:39:43.000000000 +0200
+--- monodevelop-0.11/configure.in~	2006-05-06 11:17:14.690161500 +0200
++++ monodevelop-0.11/configure.in	2006-05-06 11:19:41.883360500 +0200
 @@ -190,7 +190,7 @@
     AM_CONDITIONAL(ENABLE_UPDATE_DESKTOPDB, test x$enable_update_desktopdb = xyes)
  
  dnl Intl
--ALL_LINGUAS="cs da de es fr ja_JP pt_BR tr pl it zh_TW"
-+ALL_LINGUAS="cs da de es fr ja pt_BR tr pl it zh_TW"
+-ALL_LINGUAS="cs da de es fr ja_JP pt_BR tr pl it zh_TW zh_CN ru"
++ALL_LINGUAS="cs da de es fr ja pt_BR tr pl it zh_TW zh_CN ru"
  GETTEXT_PACKAGE=monodevelop
  AC_SUBST(GETTEXT_PACKAGE)
  AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
