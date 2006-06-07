@@ -3,7 +3,7 @@ Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
 Version:	0.11
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Tools
 Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.gz
@@ -29,7 +29,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
 Requires:	gtkhtml
-Requires:	mozilla-embedded
+Requires:	libgtkembedmoz.so
 Requires(post,postun):	shared-mime-info
 Obsoletes:	MonoDevelop
 ExcludeArch:	alpha i386 sparc sparc64
@@ -90,7 +90,7 @@ rm -rf autom4te.cache
 %{__autoconf}
 %configure \
 	--disable-update-mimedb \
-	--disable-update-desktopdb 
+	--disable-update-desktopdb
 %{__make}
 
 %install
