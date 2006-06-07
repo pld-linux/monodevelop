@@ -29,7 +29,11 @@ BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
 Requires:	gtkhtml
+%ifarch %{x8664} ia64 ppc64 s390x sparc64
+Requires:	libgtkembedmoz.so()(64bit)
+%else
 Requires:	libgtkembedmoz.so
+%endif
 Requires(post,postun):	shared-mime-info
 Obsoletes:	MonoDevelop
 ExcludeArch:	alpha i386 sparc sparc64
