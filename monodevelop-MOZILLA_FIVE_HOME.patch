@@ -1,6 +1,6 @@
 --- monodevelop-0.11/monodevelop.in.orig	2006-05-06 01:26:55.000000000 +0200
 +++ monodevelop-0.11/monodevelop.in	2006-06-07 08:28:04.000000000 +0200
-@@ -18,12 +18,16 @@
+@@ -18,12 +18,18 @@
  
  if test -n "$MOZILLA_FIVE_HOME"; then
  	MOZILLA_HOME=$MOZILLA_FIVE_HOME
@@ -20,6 +20,8 @@
 +	MOZILLA_HOME=@libdir@/mozilla-firefox
 +elif [ -f @libdir@/mozilla-thunderbird/chrome/comm.jar ]; then
 +	MOZILLA_HOME=@libdir@/mozilla-thunderbird
++elif [ -f @libdir@/xulrunner/chrome/comm.jar ]; then
++	MOZILLA_HOME=@libdir@/xulrunner
  else
  	echo "Cannot find mozilla installation directory. Please set MOZILLA_FIVE_HOME to your mozilla directory"
  	exit 1
