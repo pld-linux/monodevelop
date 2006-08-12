@@ -1,13 +1,15 @@
 %include	/usr/lib/rpm/macros.mono
+%define		_snap	20060812
 Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
 Version:	0.11
-Release:	2
+Release:	2.%{_snap}.1
 License:	GPL
 Group:		Development/Tools
-Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.gz
-# Source0-md5:	541a2eba4266b3dd8b8024c409957330
+#Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}-%{_snap}.tar.bz2
+# Source0-md5:	1b9e8f21c733f50b261fb6d084ae663f
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-desktop.patch
@@ -18,7 +20,7 @@ BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	dotnet-gecko-sharp2-devel >= 0.10
-BuildRequires:	dotnet-gtk-sharp2-devel >= 2.6.0
+BuildRequires:	dotnet-gtk-sharp2-devel >= 2.9.0
 BuildRequires:	dotnet-gtksourceview-sharp2-devel >= 0.10
 BuildRequires:	gettext-devel
 BuildRequires:	intltool
@@ -26,6 +28,7 @@ BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.13
 BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
 Requires:	gtkhtml
@@ -84,12 +87,13 @@ mo¿liwo¶ci, a w¶ród nich:
 %patch4 -p1
 
 mv po/ja{_JP,}.po
+mv po/sl{_SI,}.po
 
 %build
 rm -rf autom4te.cache
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
-%{__autoheader}
 %{__automake}
 %{__autoconf}
 %configure \
