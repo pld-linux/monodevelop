@@ -1,11 +1,11 @@
---- monodevelop-0.11/configure.in~	2006-05-06 11:17:14.690161500 +0200
-+++ monodevelop-0.11/configure.in	2006-05-06 11:19:41.883360500 +0200
-@@ -190,7 +190,7 @@
+--- monodevelop-0.12/configure.in~	2006-09-07 00:45:53.198575250 +0200
++++ monodevelop-0.12/configure.in	2006-09-07 00:50:35.836239000 +0200
+@@ -275,7 +275,7 @@
     AM_CONDITIONAL(ENABLE_UPDATE_DESKTOPDB, test x$enable_update_desktopdb = xyes)
  
  dnl Intl
--ALL_LINGUAS="cs da de es fr ja_JP pt_BR tr pl it zh_TW zh_CN ru sl_SI"
-+ALL_LINGUAS="cs da de es fr ja pt_BR tr pl it zh_TW zh_CN ru sl"
+-ALL_LINGUAS="cs da de es fr ja_JP pt_BR tr pl it zh_TW zh_CN ru sl_SI ca"
++ALL_LINGUAS="cs da de es fr ja pt_BR tr pl it zh_TW zh_CN ru sl ca"
  GETTEXT_PACKAGE=monodevelop
  AC_SUBST(GETTEXT_PACKAGE)
  AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
