@@ -1,15 +1,13 @@
 %include	/usr/lib/rpm/macros.mono
-%define		_snap	20060812
 Summary:	Mono IDE
 Summary(pl):	IDE dla Mono
 Name:		monodevelop
-Version:	0.11
-Release:	2.%{_snap}.1
+Version:	0.12
+Release:	1
 License:	GPL
 Group:		Development/Tools
-#Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.gz
-Source0:	%{name}-%{version}-%{_snap}.tar.bz2
-# Source0-md5:	1b9e8f21c733f50b261fb6d084ae663f
+Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.gz
+# Source0-md5:	860d7c2b0095bd8592bc93fb55203317
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-desktop.patch
@@ -115,13 +113,13 @@ rm -rf $RPM_BUILD_ROOT
 %post
 umask 022
 update-mime-database %{_datadir}/mime >/dev/null 2>&1 ||:
-[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1 ||:
+[ ! -x %{_bindir}/update-desktop-database ] || %{_bindir}/update-desktop-database >/dev/null 2>&1 ||:
 
 %postun
 if [ $1 = 0 ]; then
     umask 022
     update-mime-database %{_datadir}/mime >/dev/null 2>&1
-    [ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1
+    [ ! -x %{_bindir}/update-desktop-database ] || %{_bindir}/update-desktop-database >/dev/null 2>&1
 fi
 
 %files -f %{name}.lang
