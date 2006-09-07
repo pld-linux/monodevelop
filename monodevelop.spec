@@ -17,6 +17,7 @@ URL:		http://www.monodevelop.com/
 BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
+BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gecko-sharp2-devel >= 0.10
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.9.0
 BuildRequires:	dotnet-gtksourceview-sharp2-devel >= 0.10
