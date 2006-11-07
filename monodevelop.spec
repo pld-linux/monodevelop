@@ -129,6 +129,6 @@ fi
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/%{name}
 %{_datadir}/mime/packages/*
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
 %{_pkgconfigdir}/*
