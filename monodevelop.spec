@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.mono
 Summary:	Mono IDE
-Summary(pl):	IDE dla Mono
+Summary(pl.UTF-8):   IDE dla Mono
 Name:		monodevelop
 Version:	0.12
 Release:	1
@@ -59,23 +59,23 @@ include:
 - Project Support MonoDevelop comes with built in projects that help
   get you started with your console, Gnome# or Gtk# application.
 
-%description -l pl
-MonoDevelop to IDE (zintegrowane ¶rodowisko programisty) dla Mono we
-wczesnym, ale szybko postêpuj±cym stadium rozwoju. Ma wiele
-mo¿liwo¶ci, a w¶ród nich:
-- zarz±dzanie klasami MonoDevelop ma przegl±darkê klas pozwalaj±c±
-  wy¶wietlaæ klasy w projekcie, ich metody oraz w³asno¶ci. Przestrzenie
-  nazw s± uwzglêdniane, aby zachowaæ separacjê klas. Przy dodawaniu
-  czego¶ do projektu jest to automatycznie dodawane do przegl±darki
-  klas, nawet je¶li s± to przestrzenie nazw, klasy, metody, a nawet
+%description -l pl.UTF-8
+MonoDevelop to IDE (zintegrowane Å›rodowisko programisty) dla Mono we
+wczesnym, ale szybko postÄ™pujÄ…cym stadium rozwoju. Ma wiele
+moÅ¼liwoÅ›ci, a wÅ›rÃ³d nich:
+- zarzÄ…dzanie klasami MonoDevelop ma przeglÄ…darkÄ™ klas pozwalajÄ…cÄ…
+  wyÅ›wietlaÄ‡ klasy w projekcie, ich metody oraz wÅ‚asnoÅ›ci. Przestrzenie
+  nazw sÄ… uwzglÄ™dniane, aby zachowaÄ‡ separacjÄ™ klas. Przy dodawaniu
+  czegoÅ› do projektu jest to automatycznie dodawane do przeglÄ…darki
+  klas, nawet jeÅ›li sÄ… to przestrzenie nazw, klasy, metody, a nawet
   zmienne.
-- dope³nianie kodu Przy po³±czeniu szkieletów .NET i Gtk# pamiêtanie
-  samemu wszystkich klas, metod i w³asno¶ci mog³oby byæ nie lada
-  wyzwaniem. MonoDevelop w sposób inteligentny próbuje dope³niaæ to, co
-  siê pisze. Je¶li znajdzie dopasowanie, wystarczy nacisn±æ tabulacjê,
-  aby dokoñczy³ pisaæ za nas.
-- obs³uga projektów MonoDevelop przychodzi z wbudowanymi projektami,
-  pomagaj±cymi zacz±æ tworzyæ aplikacje konsolowe, Gnome# albo Gtk#.
+- dopeÅ‚nianie kodu Przy poÅ‚Ä…czeniu szkieletÃ³w .NET i Gtk# pamiÄ™tanie
+  samemu wszystkich klas, metod i wÅ‚asnoÅ›ci mogÅ‚oby byÄ‡ nie lada
+  wyzwaniem. MonoDevelop w sposÃ³b inteligentny prÃ³buje dopeÅ‚niaÄ‡ to, co
+  siÄ™ pisze. JeÅ›li znajdzie dopasowanie, wystarczy nacisnÄ…Ä‡ tabulacjÄ™,
+  aby dokoÅ„czyÅ‚ pisaÄ‡ za nas.
+- obsÅ‚uga projektÃ³w MonoDevelop przychodzi z wbudowanymi projektami,
+  pomagajÄ…cymi zaczÄ…Ä‡ tworzyÄ‡ aplikacje konsolowe, Gnome# albo Gtk#.
 
 %prep
 %setup -q
