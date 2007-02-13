@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.mono
 Summary:	Mono IDE
-Summary(pl.UTF-8):   IDE dla Mono
+Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
 Version:	0.12
 Release:	1
