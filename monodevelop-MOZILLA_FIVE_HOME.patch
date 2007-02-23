@@ -1,25 +1,29 @@
---- monodevelop-0.11/monodevelop.in.orig	2006-05-06 01:26:55.000000000 +0200
-+++ monodevelop-0.11/monodevelop.in	2006-06-07 08:28:04.000000000 +0200
-@@ -18,14 +18,18 @@
- 
+--- monodevelop-0.13/monodevelop.in.orig	2007-02-23 23:44:59.145107172 +0100
++++ monodevelop-0.13/monodevelop.in	2007-02-23 23:45:24.230049808 +0100
+@@ -19,16 +19,20 @@
+ #(NOTE: any changes to this block should be kept in sync with the one in configure.in)
  if test -n "$MOZILLA_FIVE_HOME"; then
  	MOZILLA_HOME=$MOZILLA_FIVE_HOME
 -elif [ -f @MOZILLA_HOME@/chrome/comm.jar ]; then
 -        MOZILLA_HOME=@MOZILLA_HOME@
 -elif grep GRE_PATH /etc/gre.d/*.conf > /dev/null ; then
 -	MOZILLA_HOME=$(grep -h GRE_PATH= /etc/gre.d/*.conf | cut -d '"' -f 2 -d = | head -n 1)
--elif [ $(which mozilla) ] && grep MOZILLA_FIVE_HOME= "$(which mozilla)" > /dev/null ; then
--	MOZILLA_HOME=$(grep MOZILLA_FIVE_HOME= $(which mozilla) | cut -d '"' -f 2)
--elif [ $(which firefox) ] && grep MOZILLA_FIVE_HOME= "$(which firefox)" > /dev/null ; then
--	MOZILLA_HOME=$(grep MOZILLA_FIVE_HOME= $(which firefox) | cut -d '"' -f 2)
+-elif [ $(which mozilla 2>/dev/null) ] && grep MOZILLA_FIVE_HOME= "$(which mozilla)" > /dev/null ; then
+-	MOZILLA_HOME=$(grep MOZILLA_FIVE_HOME= $(which mozilla) | cut -d '"' -f 2 | cut -d '=' -f 2 )
+-elif [ $(which firefox 2>/dev/null) ] && grep MOZILLA_FIVE_HOME= "$(which firefox)" > /dev/null ; then
+-	MOZILLA_HOME=$(grep MOZILLA_FIVE_HOME= $(which firefox) | cut -d '"' -f 2 | cut -d '=' -f 2 )
+-elif [ $(which firefox 2>/dev/null) ] && grep MOZILLA_LIBDIR= "$(which firefox)" > /dev/null ; then
+-	MOZILLA_HOME=$(grep MOZILLA_LIBDIR= $(which firefox) | cut -d '"' -f 2 | cut -d '=' -f 2)
 +elif [ -f @MOZILLA_HOME@/mozilla/chrome/comm.jar ]; then
-+        MOZILLA_HOME=@MOZILLA_HOME@/mozilla
++	MOZILLA_HOME=@MOZILLA_HOME@/mozilla
 +elif [ -f @libdir@/mozilla/chrome/comm.jar ]; then
 +	MOZILLA_HOME=@libdir@/mozilla
 +elif [ -f @libdir@/seamonkey/chrome/comm.jar ]; then
 +	MOZILLA_HOME=@libdir@/seamonkey
 +elif [ -f @libdir@/mozilla-firefox/chrome/comm.jar ]; then
 +	MOZILLA_HOME=@libdir@/mozilla-firefox
++elif [ -f @libdir@/mozilla-firefox-bin/chrome/comm.jar ]; then
++	MOZILLA_HOME=@libdir@/mozilla-firefox-bin
 +elif [ -f @libdir@/mozilla-thunderbird/chrome/comm.jar ]; then
 +	MOZILLA_HOME=@libdir@/mozilla-thunderbird
 +elif [ -f @libdir@/xulrunner/chrome/comm.jar ]; then
