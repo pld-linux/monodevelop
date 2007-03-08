@@ -1,10 +1,14 @@
+#
+# Conditional build:
+%bcond_without	subversion	# enable subversion backend
+#
 %include	/usr/lib/rpm/macros.mono
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
 Version:	0.13.1
-Release:	1
-License:	GPL
+Release:	2
+License:	GPL/MIT
 Group:		Development/Tools
 Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.gz
 # Source0-md5:	682f61f96456cd187d5656ea79c89a81
@@ -37,6 +41,7 @@ Requires:	libgtkembedmoz.so()(64bit)
 Requires:	libgtkembedmoz.so
 %endif
 Requires(post,postun):	shared-mime-info
+%{?with_subversion:Requires:	subversion-libs}
 Obsoletes:	MonoDevelop
 ExcludeArch:	alpha i386 sparc sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -97,7 +102,10 @@ rm -rf autom4te.cache
 %{__autoconf}
 %configure \
 	--disable-update-mimedb \
-	--disable-update-desktopdb
+	--disable-update-desktopdb \
+	--enable-aspnet \
+	%{?with_subversion:--enable-subversion}
+
 %{__make}
 
 %install
