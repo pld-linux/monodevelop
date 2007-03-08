@@ -34,6 +34,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
+BuildRequires:	xsp
 Requires:	gtkhtml
 %ifarch %{x8664} ia64 ppc64 s390x sparc64
 Requires:	libgtkembedmoz.so()(64bit)
