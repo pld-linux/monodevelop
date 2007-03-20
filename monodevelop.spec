@@ -1,4 +1,10 @@
 #
+# TODO:
+#	- on x86-64: /usr/bin/monodevelop[60]: cd: /usr/lib/monodevelop/bin - No such file or directory
+#	- segv on exit:
+#		(MonoDevelop:696): Gtk-CRITICAL **: gtk_style_detach: assertion `style->attach_count > 0' failed
+#		zsh: segmentation fault  monodevelop
+#
 # Conditional build:
 %bcond_without	subversion	# enable subversion backend
 #
