@@ -6,7 +6,7 @@
 #		zsh: segmentation fault  monodevelop
 #
 # Conditional build:
-%bcond_without	subversion	# enable subversion backend
+%bcond_without	subversion	# disable subversion backend
 #
 %include	/usr/lib/rpm/macros.mono
 Summary:	Mono IDE
