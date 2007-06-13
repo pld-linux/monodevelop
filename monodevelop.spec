@@ -12,12 +12,12 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	0.13.1
-Release:	2
+Version:	0.14
+Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
-Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.gz
-# Source0-md5:	682f61f96456cd187d5656ea79c89a81
+Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
+# Source0-md5:	b0062669981341523e81003eb3a70614
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-desktop.patch
@@ -113,7 +113,7 @@ rm -rf autom4te.cache
 	--enable-aspnet \
 	%{?with_subversion:--enable-subversion}
 
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
