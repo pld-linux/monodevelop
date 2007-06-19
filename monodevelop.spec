@@ -13,7 +13,7 @@ Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
 Version:	0.14
-Release:	1
+Release:	2
 License:	GPL/MIT
 Group:		Development/Tools
 Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
@@ -27,6 +27,7 @@ URL:		http://www.monodevelop.com/
 BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
+BuildRequires:	desktop-file-utils
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gecko-sharp2-devel >= 0.10
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.9.0
@@ -41,6 +42,7 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
 BuildRequires:	xsp
+Requires(post,postun):	desktop-file-utils
 Requires:	gtkhtml
 %ifarch %{x8664} ia64 ppc64 s390x sparc64
 Requires:	libgtkembedmoz.so()(64bit)
@@ -127,16 +129,12 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-umask 022
-update-mime-database %{_datadir}/mime >/dev/null 2>&1 ||:
-[ ! -x %{_bindir}/update-desktop-database ] || %{_bindir}/update-desktop-database >/dev/null 2>&1 ||:
+%update_desktop_database_post
+%update_mime_database
 
 %postun
-if [ $1 = 0 ]; then
-    umask 022
-    update-mime-database %{_datadir}/mime >/dev/null 2>&1
-    [ ! -x %{_bindir}/update-desktop-database ] || %{_bindir}/update-desktop-database >/dev/null 2>&1
-fi
+%update_desktop_database_postun
+%update_mime_database
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
