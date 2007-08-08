@@ -4,8 +4,8 @@
     AM_CONDITIONAL(ENABLE_UPDATE_DESKTOPDB, test x$enable_update_desktopdb = xyes)
  
  dnl Intl
--ALL_LINGUAS="cs da de es fr ja_JP pt_BR tr pl it zh_TW zh_CN ru sl_SI ca gl pt"
-+ALL_LINGUAS="cs da de es fr ja pt_BR tr pl it zh_TW zh_CN ru sl ca gl pt"
+-ALL_LINGUAS="cs da de es fr ja pt_BR tr pl it zh_TW zh_CN ru sl_SI ca gl pt sv"
++ALL_LINGUAS="cs da de es fr ja pt_BR tr pl it zh_TW zh_CN ru sl sv ca gl pt"
  GETTEXT_PACKAGE=monodevelop
  AC_SUBST(GETTEXT_PACKAGE)
  AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
