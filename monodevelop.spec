@@ -7,6 +7,7 @@
 #
 # Conditional build:
 %bcond_without	subversion	# disable subversion backend
+%bcond_without	asp		# disable ASP.net
 #
 %include	/usr/lib/rpm/macros.mono
 Summary:	Mono IDE
@@ -41,7 +42,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
-BuildRequires:	xsp
+%{?with_asp:BuildRequires:	xsp}
 Requires(post,postun):	desktop-file-utils
 Requires:	gtkhtml
 %ifarch %{x8664} ia64 ppc64 s390x sparc64
@@ -111,7 +112,7 @@ rm -rf autom4te.cache
 %configure \
 	--disable-update-mimedb \
 	--disable-update-desktopdb \
-	--enable-aspnet \
+	%{?with_asp:--enable-aspnet} \
 	%{?with_subversion:--enable-subversion}
 
 %{__make} -j1
