@@ -9,16 +9,20 @@
 %bcond_without	subversion	# disable subversion backend
 %bcond_without	asp		# disable ASP.net
 #
+
+%define		_snap 20070926
+
 %include	/usr/lib/rpm/macros.mono
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
 Version:	0.15
-Release:	1
+Release:	1.%{_snap}.1
 License:	GPL/MIT
 Group:		Development/Tools
-Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
-# Source0-md5:	2d49f6fd5934e8c5fad402ea17b83d83
+#Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{_snap}.tar.bz2
+# Source0-md5:	d24c5892f35867d0db123c7fe01238b1
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-desktop.patch
@@ -45,11 +49,12 @@ BuildRequires:	shared-mime-info
 %{?with_asp:BuildRequires:	xsp}
 Requires(post,postun):	desktop-file-utils
 Requires:	gtkhtml
-%ifarch %{x8664} ia64 ppc64 s390x sparc64
-Requires:	libgtkembedmoz.so()(64bit)
-%else
-Requires:	libgtkembedmoz.so
-%endif
+#%ifarch %{x8664} ia64 ppc64 s390x sparc64
+#Requires:	libgtkembedmoz.so()(64bit)
+#%else
+#Requires:	libgtkembedmoz.so
+#%endif
+Requires:	xulrunner-libs
 Requires(post,postun):	shared-mime-info
 %{?with_subversion:Requires:	subversion-libs}
 Obsoletes:	MonoDevelop
@@ -93,7 +98,7 @@ możliwości, a wśród nich:
   pomagającymi zacząć tworzyć aplikacje konsolowe, Gnome# albo Gtk#.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{_snap}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -112,7 +117,8 @@ rm -rf autom4te.cache
 %configure \
 	--disable-update-mimedb \
 	--disable-update-desktopdb \
-	%{?with_asp:--enable-aspnet} \
+	--enable-c \
+	--%{?with_asp:en}%{?!with_asp:dis}able-aspnet \
 	%{?with_subversion:--enable-subversion}
 
 %{__make} -j1
