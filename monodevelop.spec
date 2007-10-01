@@ -10,19 +10,16 @@
 %bcond_without	asp		# disable ASP.net
 #
 
-%define		_snap 20070926
-
 %include	/usr/lib/rpm/macros.mono
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	0.15
-Release:	1.%{_snap}.1
+Version:	0.16
+Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
-#Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
-Source0:	%{name}-%{_snap}.tar.bz2
-# Source0-md5:	d24c5892f35867d0db123c7fe01238b1
+Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
+# Source0-md5:	f5ba7fbfba3185874a466a6e5ec4936b
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-desktop.patch
@@ -98,7 +95,7 @@ możliwości, a wśród nich:
   pomagającymi zacząć tworzyć aplikacje konsolowe, Gnome# albo Gtk#.
 
 %prep
-%setup -q -n %{name}-%{_snap}
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
