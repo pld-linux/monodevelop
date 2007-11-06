@@ -14,12 +14,12 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	0.16
+Version:	0.17
 Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
 Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
-# Source0-md5:	f5ba7fbfba3185874a466a6e5ec4936b
+# Source0-md5:	ea7288bc7ac88f699ac0aa1c10fffa82
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-desktop.patch
@@ -148,3 +148,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
 %{_pkgconfigdir}/*
+%{_mandir}/man1/mdtool.1*
