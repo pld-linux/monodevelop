@@ -18,6 +18,7 @@ Version:	0.17
 Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
+#Source0Download: http://go-mono.com/sources-stable/
 Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
 # Source0-md5:	ea7288bc7ac88f699ac0aa1c10fffa82
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
@@ -115,7 +116,7 @@ rm -rf autom4te.cache
 	--disable-update-mimedb \
 	--disable-update-desktopdb \
 	--enable-c \
-	--%{?with_asp:en}%{?!with_asp:dis}able-aspnet \
+	--%{?with_asp:en}%{!?with_asp:dis}able-aspnet \
 	%{?with_subversion:--enable-subversion}
 
 %{__make} -j1
