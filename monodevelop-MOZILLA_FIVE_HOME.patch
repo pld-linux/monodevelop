@@ -1,9 +1,10 @@
---- monodevelop-0.13/monodevelop.in.orig	2007-02-23 23:44:59.145107172 +0100
-+++ monodevelop-0.13/monodevelop.in	2007-02-23 23:45:24.230049808 +0100
-@@ -17,40 +17,7 @@
+--- monodevelop-0.18/monodevelop.in~	2007-12-19 16:47:09.004304700 +0100
++++ monodevelop-0.18/monodevelop.in	2007-12-19 16:48:28.498841222 +0100
+@@ -16,41 +16,7 @@
+     echo "$ret"
  }
  
- 
+-
 -#(NOTE: any changes to this block should be kept in sync with the one in configure.in)
 -MOZFILE="libgtkembedmoz.so"
 -find_libgtkembedmoz ()
@@ -30,7 +31,7 @@
 -}
 -
 -if test -e "@MOZILLA_HOME@/$MOZFILE"; then
--	MOZILLA_HOME=@MOZILLA_HOME@
+-	MOZILLA_HOME="@MOZILLA_HOME@"
 -else
 -	MOZILLA_HOME=`find_libgtkembedmoz`
 -	if test ! -e "$MOZILLA_HOME/$MOZFILE"; then
