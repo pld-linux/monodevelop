@@ -14,13 +14,13 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	0.17
+Version:	0.18
 Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
 #Source0Download: http://go-mono.com/sources-stable/
 Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
-# Source0-md5:	ea7288bc7ac88f699ac0aa1c10fffa82
+# Source0-md5:	4bc524df81dca65bca05271e89a96b90
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-desktop.patch
@@ -39,6 +39,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.13
+BuildRequires:	mono-addins-devel
 BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -52,6 +53,7 @@ Requires:	gtkhtml
 #%else
 #Requires:	libgtkembedmoz.so
 #%endif
+Requires:	mono-addins
 Requires:	xulrunner-libs
 Requires(post,postun):	shared-mime-info
 %{?with_subversion:Requires:	subversion-libs}
