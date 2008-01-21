@@ -15,7 +15,7 @@ Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
 Version:	0.18.1
-Release:	1
+Release:	2
 License:	GPL/MIT
 Group:		Development/Tools
 #Source0Download: http://go-mono.com/sources-stable/
@@ -57,6 +57,8 @@ Requires:	mono-addins
 Requires:	xulrunner-libs
 Requires(post,postun):	shared-mime-info
 %{?with_subversion:Requires:	subversion-libs}
+Suggests:	mono-compat-links
+Suggests:	mono-csharp
 Obsoletes:	MonoDevelop
 ExcludeArch:	alpha i386 sparc sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
