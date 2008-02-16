@@ -14,15 +14,14 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	0.18.1
-Release:	2
+Version:	0.19
+Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
 #Source0Download: http://go-mono.com/sources-stable/
 Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
-# Source0-md5:	3d3c9c717e2fb809c7880a8a9efd8178
+# Source0-md5:	420d7aa9608771477156353eceb3b0c8
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
-Patch1:		%{name}-locale_names.patch
 Patch2:		%{name}-desktop.patch
 Patch3:		%{name}-install.patch
 Patch4:		%{name}-libdir.patch
@@ -47,6 +46,7 @@ BuildRequires:	sed >= 4.0
 BuildRequires:	shared-mime-info
 %{?with_asp:BuildRequires:	xsp}
 Requires(post,postun):	desktop-file-utils
+Requires(post,postun):	hicolor-icon-theme
 Requires:	gtkhtml
 #%ifarch %{x8664} ia64 ppc64 s390x sparc64
 #Requires:	libgtkembedmoz.so()(64bit)
@@ -102,16 +102,12 @@ możliwości, a wśród nich:
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
 
-mv po/sl{_SI,}.po
-
 %build
 rm -rf autom4te.cache
-%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__automake}
@@ -139,10 +135,12 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %update_desktop_database_post
 %update_mime_database
+%update_icon_cache hicolor
 
 %postun
 %update_desktop_database_postun
 %update_mime_database
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -151,6 +149,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}
 %{_datadir}/mime/packages/*
 %{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
 %{_pkgconfigdir}/*
+%{_iconsdir}/hicolor/*/apps/monodevelop.png
+%{_iconsdir}/hicolor/*/apps/monodevelop.svg
 %{_mandir}/man1/mdtool.1*
+%{_mandir}/man1/monodevelop.1*

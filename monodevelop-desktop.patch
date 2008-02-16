@@ -1,7 +1,7 @@
 diff -ur monodevelop-0.10/monodevelop.desktop monodevelop-0.10-desktop_patch/monodevelop.desktop
 --- monodevelop-0.10/monodevelop.desktop	2006-04-04 21:29:37.000000000 +0200
 +++ monodevelop-0.10-desktop_patch/monodevelop.desktop	2006-04-05 18:13:56.000000000 +0200
-@@ -3,15 +3,17 @@
+@@ -3,7 +3,9 @@
  Encoding=UTF-8
  Name=MonoDevelop
  GenericName=Integrated Development Environment
@@ -10,13 +10,12 @@ diff -ur monodevelop-0.10/monodevelop.desktop monodevelop-0.10-desktop_patch/mon
 +Comment[pl]=Rozwijaj aplikacje .NET w Zintegrowanym Środowisku Programistycznym
  Exec=monodevelop
  TryExec=monodevelop
--Icon=monodevelop.png
-+Icon=monodevelop
- StartupNotify=true
+ Icon=monodevelop
+@@ -11,7 +11,7 @@
  Terminal=false
  Type=Application
- MimeType=text/x-csharp;application/x-mds;application/x-mdp;application/x-cmbx;application/x-prjx;
--Categories=Application;Development;
+ MimeType=text/x-csharp;application/x-mds;application/x-mdp;application/x-cmbx;application/x-prjx;application/x-csproj;application/x-vbproj;application/x-sln;
+-Categories=Development;
 +Categories=GTK;GNOME;Development;IDE;
  X-GNOME-Bugzilla-Bugzilla=Ximian
  X-GNOME-Bugzilla-Product=MonoDevelop
