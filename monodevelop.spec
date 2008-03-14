@@ -14,13 +14,13 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	0.19
+Version:	1.0
 Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
 #Source0Download: http://go-mono.com/sources-stable/
 Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
-# Source0-md5:	420d7aa9608771477156353eceb3b0c8
+# Source0-md5:	537e8a1d11d59714f955b95f86ac479b
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch2:		%{name}-desktop.patch
 Patch3:		%{name}-install.patch
