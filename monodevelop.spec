@@ -9,7 +9,6 @@
 %bcond_without	subversion	# disable subversion backend
 %bcond_without	asp		# disable ASP.net
 #
-
 %include	/usr/lib/rpm/macros.mono
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
@@ -18,8 +17,8 @@ Version:	1.0
 Release:	2
 License:	GPL/MIT
 Group:		Development/Tools
-#Source0Download: http://go-mono.com/sources-stable/
-Source0:	http://go-mono.com/sources/monodevelop/%{name}-%{version}.tar.bz2
+# latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
+Source0:	http://ftp.novell.com/pub/mono/sources/monodevelop/%{name}-%{version}.tar.bz2
 # Source0-md5:	537e8a1d11d59714f955b95f86ac479b
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch2:		%{name}-desktop.patch
