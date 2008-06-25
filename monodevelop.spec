@@ -1,9 +1,6 @@
 #
 # TODO:
 #	- on x86-64: /usr/bin/monodevelop[60]: cd: /usr/lib/monodevelop/bin - No such file or directory
-#	- segv on exit:
-#		(MonoDevelop:696): Gtk-CRITICAL **: gtk_style_detach: assertion `style->attach_count > 0' failed
-#		zsh: segmentation fault  monodevelop
 #
 # Conditional build:
 %bcond_without	subversion	# disable subversion backend
@@ -14,7 +11,7 @@ Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
 Version:	1.0
-Release:	2
+Release:	3
 License:	GPL/MIT
 Group:		Development/Tools
 # latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
@@ -53,6 +50,7 @@ Requires:	gtkhtml
 #Requires:	libgtkembedmoz.so
 #%endif
 Requires:	mono-addins
+Requires:	pkgconfig
 Requires:	xulrunner-libs
 Requires(post,postun):	shared-mime-info
 %{?with_subversion:Requires:	subversion-libs}
