@@ -10,13 +10,13 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	1.0
-Release:	5
+Version:	1.9.1
+Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
 # latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
 Source0:	http://ftp.novell.com/pub/mono/sources/monodevelop/%{name}-%{version}.tar.bz2
-# Source0-md5:	537e8a1d11d59714f955b95f86ac479b
+# Source0-md5:	de6d1b2d135836048e0091ae60edb591
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch2:		%{name}-desktop.patch
 Patch3:		%{name}-install.patch
