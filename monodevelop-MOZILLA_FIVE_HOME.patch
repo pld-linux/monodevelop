@@ -1,10 +1,9 @@
---- monodevelop-0.18/monodevelop.in~	2007-12-19 16:47:09.004304700 +0100
-+++ monodevelop-0.18/monodevelop.in	2007-12-19 16:48:28.498841222 +0100
-@@ -16,42 +16,7 @@
-     echo "$ret"
- }
+--- monodevelop-2.0/monodevelop.in~	2009-03-20 00:43:56.000000000 +0100
++++ monodevelop-2.0/monodevelop.in	2009-08-26 10:53:00.645206831 +0200
+@@ -12,41 +12,7 @@
+ ## BEGIN MOZILLA DETECTION ##
+ #############################
  
--
 -#(NOTE: any changes to this block should be kept in sync with the one in configure.in)
 -MOZFILE="libgtkembedmoz.so"
 -find_libgtkembedmoz ()
@@ -42,5 +41,5 @@
 -fi
 +MOZILLA_HOME=@libdir@/xulrunner
  
- MD_BIN_PATH=@prefix@/lib/monodevelop/bin
- 
+ if [ -n $LD_LIBRARY_PATH ]; then
+ 	export LD_LIBRARY_PATH="$MOZILLA_HOME:$LD_LIBRARY_PATH"

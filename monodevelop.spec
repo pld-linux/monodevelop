@@ -10,17 +10,16 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	1.9.1
+Version:	2.0
 Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
 # latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
 Source0:	http://ftp.novell.com/pub/mono/sources/monodevelop/%{name}-%{version}.tar.bz2
-# Source0-md5:	de6d1b2d135836048e0091ae60edb591
+# Source0-md5:	0f527204ffd4785284d9556a75524c3e
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch2:		%{name}-desktop.patch
 Patch3:		%{name}-install.patch
-Patch4:		%{name}-libdir.patch
 URL:		http://www.monodevelop.com/
 BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	autoconf
@@ -101,7 +100,19 @@ możliwości, a wśród nich:
 %patch0 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
+
+sed -i -e 's!${exec_prefix}/lib!%{_libdir}!' configure
+sed -i -e 's!$PREFIX/lib/!%{_libdir}/!' monodevelop.in
+sed -i -e 's!$PREFIX/lib/!%{_libdir}/!' mdtool.in
+find . -name Makefile.in -or -name Makefile.am -or -name \*.pc.in \
+       -or -name \*.in -or -name \*.xml \
+       | while read f ;
+         do
+           sed -i -e 's!$(prefix)/lib/!%{_libdir}/!' "$f" 
+           sed -i -e 's!@prefix@/lib/!%{_libdir}/!' "$f"
+           sed -i -e 's!/usr/lib/!%{_libdir}/!' "$f"
+           sed -i -e 's!${exec_prefix}/lib/!%{_libdir}/!' "$f" ;
+         done
 
 %build
 rm -rf autom4te.cache
