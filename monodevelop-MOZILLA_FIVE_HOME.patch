@@ -1,6 +1,6 @@
---- monodevelop-2.0/monodevelop.in~	2009-03-20 00:43:56.000000000 +0100
-+++ monodevelop-2.0/monodevelop.in	2009-08-26 10:53:00.645206831 +0200
-@@ -12,41 +12,7 @@
+--- monodevelop-2.2/monodevelop.in.orig~	2009-11-05 19:12:21.000000000 +0100
++++ monodevelop-2.2/monodevelop.in	2009-12-16 17:56:10.371745779 +0100
+@@ -17,45 +17,7 @@
  ## BEGIN MOZILLA DETECTION ##
  #############################
  
@@ -11,8 +11,12 @@
 -	MOZDIR=$MOZILLA_FIVE_HOME
 -	if test -e "$MOZDIR/$MOZFILE"; then echo $MOZDIR; return; fi
 -	
--	MOZDIR=$(grep -h GRE_PATH= /etc/gre.d/*.conf 2>/dev/null | cut -d '"' -f 2 -d = | head -n 1) #"
--	if test -e "$MOZDIR/$MOZFILE"; then echo $MOZDIR; return; fi
+-       ALLMOZDIRS=$(grep -h GRE_PATH= /etc/gre.d/*.conf 2>/dev/null | cut -d '"' -f 2 -d = )
+-       if [ -n "$ALLMOZDIRS" ] ; then
+-               for MOZDIR in $ALLMOZDIRS ; do
+-                       if test -e "$MOZDIR/$MOZFILE"; then echo $MOZDIR; return; fi
+-               done
+-       fi
 -	
 -	mozilla_script=$(which mozilla 2> /dev/null)
 -	firefox_script=$(which firefox 2> /dev/null)
