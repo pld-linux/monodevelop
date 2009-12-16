@@ -32,7 +32,7 @@ BuildRequires:	dotnet-gtksourceview-sharp2-devel >= 0.10
 BuildRequires:	gettext-devel
 BuildRequires:	intltool
 BuildRequires:	libtool
-BuildRequires:	mono-csharp >= 1.1.13
+BuildRequires:	mono-csharp >= 2.4.2
 BuildRequires:	mono-addins-devel
 BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
