@@ -8,6 +8,6 @@ diff -ur monodevelop-0.10/monodevelop.desktop monodevelop-0.10-desktop_patch/mon
 +GenericName[pl]=Zintegrowane Środowisko Programistyczne
  Comment=Develop .NET applications in an Integrated Development Environment
 +Comment[pl]=Rozwijaj aplikacje .NET w Zintegrowanym Środowisku Programistycznym
- Exec=monodevelop
+ Exec=monodevelop %F
  TryExec=monodevelop
  Icon=monodevelop
