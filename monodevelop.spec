@@ -103,7 +103,9 @@ install -d $RPM_BUILD_ROOT%{_pkgconfigdir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%if "%{_lib}" != "lib"
 %{__mv} -f $RPM_BUILD_ROOT%{_prefix}/lib/pkgconfig/* $RPM_BUILD_ROOT%{_pkgconfigdir}
+%endif
 
 %find_lang %{name}
 
