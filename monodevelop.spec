@@ -1,12 +1,9 @@
 #
-# TODO:
-#	- on x86-64: /usr/bin/monodevelop[60]: cd: /usr/lib/monodevelop/bin - No such file or directory
-#
 # Conditional build:
 %bcond_without	subversion	# disable subversion backend
-%bcond_without	asp		# disable ASP.net
 #
 %include	/usr/lib/rpm/macros.mono
+#
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
@@ -18,43 +15,31 @@ Group:		Development/Tools
 Source0:	http://ftp.novell.com/pub/mono/sources/monodevelop/%{name}-%{version}.tar.bz2
 # Source0-md5:	14deccd526d640cd38482f7ce7c0cb41
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
-Patch2:		%{name}-desktop.patch
-Patch3:		%{name}-install.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://www.monodevelop.com/
-BuildRequires:	ORBit2-devel >= 2.8.3
-BuildRequires:	autoconf
-BuildRequires:	automake >= 1:1.7
-BuildRequires:	desktop-file-utils
+BuildRequires:	autoconf >= 2.53
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
-BuildRequires:	dotnet-gecko-sharp2-devel >= 0.10
-BuildRequires:	dotnet-gtk-sharp2-devel >= 2.9.0
-BuildRequires:	dotnet-gtksourceview-sharp2-devel >= 0.10
+BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.8
 BuildRequires:	gettext-devel
-BuildRequires:	intltool
-BuildRequires:	libtool
-BuildRequires:	mono-csharp >= 2.4.2
 BuildRequires:	mono-addins-devel >= 0.5
+BuildRequires:	mono-csharp >= 2.6.1
 BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	sed >= 4.0
-BuildRequires:	shared-mime-info
-%{?with_asp:BuildRequires:	xsp}
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	hicolor-icon-theme
-Requires:	gtkhtml
-#%ifarch %{x8664} ia64 ppc64 s390x sparc64
-#Requires:	libgtkembedmoz.so()(64bit)
-#%else
-#Requires:	libgtkembedmoz.so
-#%endif
-Requires:	mono-addins
-Requires:	pkgconfig
-Requires:	xulrunner-libs
+Requires(post,postun):	gtk+2
 Requires(post,postun):	shared-mime-info
+Requires:	hicolor-icon-theme
+Requires:	mono-addins >= 0.5
+Requires:	pkgconfig
 %{?with_subversion:Requires:	subversion-libs}
+Requires:	xulrunner-libs
+Suggests:	ctags
+Suggests:	monodoc
 Suggests:	mono-compat-links
 Suggests:	mono-csharp
+Suggests:	xsp
 Obsoletes:	MonoDevelop
 ExcludeArch:	alpha i386 sparc sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -98,42 +83,27 @@ możliwości, a wśród nich:
 %prep
 %setup -q
 %patch0 -p1
-%patch2 -p1
-%patch3 -p1
-
-sed -i -e 's!${exec_prefix}/lib!%{_libdir}!' configure
-sed -i -e 's!$PREFIX/lib/!%{_libdir}/!' monodevelop.in
-sed -i -e 's!$PREFIX/lib/!%{_libdir}/!' mdtool.in
-find . -name Makefile.in -or -name Makefile.am -or -name \*.pc.in \
-       -or -name \*.in -or -name \*.xml \
-       | while read f ;
-         do
-           sed -i -e 's!$(prefix)/lib/!%{_libdir}/!' "$f" 
-           sed -i -e 's!@prefix@/lib/!%{_libdir}/!' "$f"
-           sed -i -e 's!/usr/lib/!%{_libdir}/!' "$f"
-           sed -i -e 's!${exec_prefix}/lib/!%{_libdir}/!' "$f" ;
-         done
+%patch1 -p1
 
 %build
-rm -rf autom4te.cache
-%{__libtoolize}
 %{__aclocal}
-%{__automake}
 %{__autoconf}
+%{__automake}
 %configure \
 	--disable-update-mimedb \
 	--disable-update-desktopdb \
-	--enable-c \
-	--%{?with_asp:en}%{!?with_asp:dis}able-aspnet \
 	%{?with_subversion:--enable-subversion}
 
 %{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_pkgconfigdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__mv} -f $RPM_BUILD_ROOT%{_prefix}/lib/pkgconfig/* $RPM_BUILD_ROOT%{_pkgconfigdir}
 
 %find_lang %{name}
 
@@ -152,12 +122,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README
-%attr(755,root,root) %{_bindir}/*
-%{_libdir}/%{name}
-%{_datadir}/mime/packages/*
-%{_desktopdir}/*.desktop
-%{_pkgconfigdir}/*
+%doc AUTHORS ChangeLog README
+%attr(755,root,root) %{_bindir}/mdtool
+%attr(755,root,root) %{_bindir}/monodevelop
+%{_prefix}/lib/monodevelop
+%{_datadir}/mime/packages/monodevelop.xml
+%{_desktopdir}/monodevelop.desktop
+%{_pkgconfigdir}/monodevelop-core-addins.pc
+%{_pkgconfigdir}/monodevelop.pc
 %{_iconsdir}/hicolor/*/apps/monodevelop.png
 %{_iconsdir}/hicolor/*/apps/monodevelop.svg
 %{_mandir}/man1/mdtool.1*
