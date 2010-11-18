@@ -7,13 +7,13 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	2.4
+Version:	2.4.1
 Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
 # latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
 Source0:	http://ftp.novell.com/pub/mono/sources/monodevelop/%{name}-%{version}.tar.bz2
-# Source0-md5:	14deccd526d640cd38482f7ce7c0cb41
+# Source0-md5:	0924b3b75d027daa4317913a58fc8d0d
 Patch0:		%{name}-MOZILLA_FIVE_HOME.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.monodevelop.com/
@@ -36,9 +36,9 @@ Requires:	pkgconfig
 %{?with_subversion:Requires:	subversion-libs}
 Requires:	xulrunner-libs
 Suggests:	ctags
-Suggests:	monodoc
 Suggests:	mono-compat-links
 Suggests:	mono-csharp
+Suggests:	monodoc
 Suggests:	xsp
 Obsoletes:	MonoDevelop
 ExcludeArch:	alpha i386 sparc sparc64
