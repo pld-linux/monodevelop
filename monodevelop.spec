@@ -7,13 +7,13 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	2.8.2
+Version:	2.8.6.5
 Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
 # latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
 Source0:	http://download.mono-project.com/sources/monodevelop/%{name}-%{version}.tar.bz2
-# Source0-md5:	4a445e251d5e8a12a8aa4ae22f3a6841
+# Source0-md5:	5b4b2d17bd400592e680ec1553449f69
 Patch0:		%{name}-desktop.patch
 URL:		http://www.monodevelop.com/
 BuildRequires:	autoconf >= 2.53
@@ -21,8 +21,8 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.8
 BuildRequires:	gettext-devel
-BuildRequires:	mono-addins-devel >= 0.5
-BuildRequires:	mono-csharp >= 2.6.1
+BuildRequires:	mono-addins-devel >= 0.6
+BuildRequires:	mono-csharp >= 2.8.0
 BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -31,7 +31,7 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	shared-mime-info
 Requires:	hicolor-icon-theme
-Requires:	mono-addins >= 0.5
+Requires:	mono-addins >= 0.6
 Requires:	pkgconfig
 %{?with_subversion:Requires:	subversion-libs}
 Requires:	xulrunner-libs
