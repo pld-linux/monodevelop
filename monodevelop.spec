@@ -7,13 +7,13 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	2.8.6.5
+Version:	2.8.8.4
 Release:	1
 License:	GPL/MIT
 Group:		Development/Tools
 # latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
 Source0:	http://download.mono-project.com/sources/monodevelop/%{name}-%{version}.tar.bz2
-# Source0-md5:	5b4b2d17bd400592e680ec1553449f69
+# Source0-md5:	106a1eed3f8ad6ff5caa71b34cde95cf
 Patch0:		%{name}-desktop.patch
 URL:		http://www.monodevelop.com/
 BuildRequires:	autoconf >= 2.53
