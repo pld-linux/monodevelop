@@ -7,22 +7,24 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-Version:	2.8.8.4
+%define	mainver	4.0.12
+%define	subver	3
+Version:	%{mainver}.%{subver}
 Release:	1
-License:	GPL/MIT
+# most of code is MIT-licensed, some parts LGPL v2
+License:	LGPL v2, MIT
 Group:		Development/Tools
-# latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
-Source0:	http://download.mono-project.com/sources/monodevelop/%{name}-%{version}.tar.bz2
-# Source0-md5:	106a1eed3f8ad6ff5caa71b34cde95cf
+Source0:	http://download.mono-project.com/sources/monodevelop/%{name}-%{mainver}-%{subver}.tar.bz2
+# Source0-md5:	5f9cd24d2791054d88b0dcce1259afdb
 Patch0:		%{name}-desktop.patch
-URL:		http://www.monodevelop.com/
+URL:		http://monodevelop.com/
 BuildRequires:	autoconf >= 2.53
-BuildRequires:	automake >= 1:1.9
+BuildRequires:	automake >= 1:1.10
+# gconf-sharp, gnome-sharp, gnome-vfs-sharp
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.8
 BuildRequires:	gettext-devel
-BuildRequires:	mono-addins-devel >= 0.6
-BuildRequires:	mono-csharp >= 2.8.0
+BuildRequires:	mono-csharp >= 2.10.9
 BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -30,15 +32,15 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	shared-mime-info
+Requires:	dotnet-gtk-sharp2 >= 2.12.8
 Requires:	hicolor-icon-theme
-Requires:	mono-addins >= 0.6
 Requires:	pkgconfig
 %{?with_subversion:Requires:	subversion-libs}
 Requires:	xulrunner-libs
 Suggests:	ctags
-Suggests:	mono-compat-links
-Suggests:	mono-csharp
-Suggests:	monodoc
+Suggests:	mono-compat-links >= 2.10.9
+Suggests:	mono-csharp >= 2.10.9
+Suggests:	monodoc >= 1.0
 Suggests:	xsp
 Obsoletes:	MonoDevelop
 ExcludeArch:	alpha i386 sparc sparc64
@@ -81,7 +83,7 @@ możliwości, a wśród nich:
   pomagającymi zacząć tworzyć aplikacje konsolowe, Gnome# albo Gtk#.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{mainver}
 %patch0 -p1
 
 %build
