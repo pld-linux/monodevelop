@@ -10,7 +10,7 @@ Name:		monodevelop
 %define	mainver	4.0.12
 %define	subver	3
 Version:	%{mainver}.%{subver}
-Release:	1
+Release:	2
 # most of code is MIT-licensed, some parts LGPL v2
 License:	LGPL v2, MIT
 Group:		Development/Tools
