@@ -7,15 +7,15 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-%define	mainver	4.0.12
-%define	subver	3
+%define	mainver	4.0.14
+%define	subver	5
 Version:	%{mainver}.%{subver}
-Release:	2
+Release:	1
 # most of code is MIT-licensed, some parts LGPL v2
 License:	LGPL v2, MIT
 Group:		Development/Tools
 Source0:	http://download.mono-project.com/sources/monodevelop/%{name}-%{mainver}-%{subver}.tar.bz2
-# Source0-md5:	5f9cd24d2791054d88b0dcce1259afdb
+# Source0-md5:	f8185669d5198eeeb50974c36a1e646b
 Patch0:		%{name}-desktop.patch
 URL:		http://monodevelop.com/
 BuildRequires:	autoconf >= 2.53
@@ -45,6 +45,8 @@ Suggests:	xsp
 Obsoletes:	MonoDevelop
 ExcludeArch:	alpha i386 sparc sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noautoreq	'mono\\(System.Data.Entity\\)' 'mono\\(System.Web.WebPages.Deployment\\)'
 
 %description
 Mono IDE, in the very early stages of development right now, and
