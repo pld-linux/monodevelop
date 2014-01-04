@@ -7,15 +7,15 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-%define	mainver	4.0.14
-%define	subver	5
+%define	mainver	4.2.2
+%define	subver	2
 Version:	%{mainver}.%{subver}
 Release:	1
 # most of code is MIT-licensed, some parts LGPL v2
 License:	LGPL v2, MIT
 Group:		Development/Tools
 Source0:	http://download.mono-project.com/sources/monodevelop/%{name}-%{mainver}-%{subver}.tar.bz2
-# Source0-md5:	f8185669d5198eeeb50974c36a1e646b
+# Source0-md5:	34bf8adb9b5b6a798e65f3c0ce4edced
 Patch0:		%{name}-desktop.patch
 URL:		http://monodevelop.com/
 BuildRequires:	autoconf >= 2.53
