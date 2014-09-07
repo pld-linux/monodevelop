@@ -7,15 +7,15 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-%define	mainver	4.2.2
-%define	subver	2
+%define	mainver	5.0.1
+%define	subver	0
 Version:	%{mainver}.%{subver}
 Release:	1
 # most of code is MIT-licensed, some parts LGPL v2
 License:	LGPL v2, MIT
 Group:		Development/Tools
 Source0:	http://download.mono-project.com/sources/monodevelop/%{name}-%{mainver}-%{subver}.tar.bz2
-# Source0-md5:	34bf8adb9b5b6a798e65f3c0ce4edced
+# Source0-md5:	5f68aa384c7aa473fdd36da2f70117b4
 Patch0:		%{name}-desktop.patch
 URL:		http://monodevelop.com/
 BuildRequires:	autoconf >= 2.53
@@ -24,10 +24,11 @@ BuildRequires:	automake >= 1:1.10
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.8
 BuildRequires:	gettext-devel
-BuildRequires:	mono-csharp >= 2.10.9
+BuildRequires:	mono-csharp >= 3.0.4
 BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	sed >= 4.0
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
@@ -38,8 +39,8 @@ Requires:	pkgconfig
 %{?with_subversion:Requires:	subversion-libs}
 Requires:	xulrunner-libs
 Suggests:	ctags
-Suggests:	mono-compat-links >= 2.10.9
-Suggests:	mono-csharp >= 2.10.9
+Suggests:	mono-compat-links >= 3.0.4
+Suggests:	mono-csharp >= 3.0.4
 Suggests:	monodoc >= 1.0
 Suggests:	xsp
 Obsoletes:	MonoDevelop
@@ -87,6 +88,10 @@ możliwości, a wśród nich:
 %prep
 %setup -q -n %{name}-%{mainver}
 %patch0 -p1
+
+%{__sed} -i -e 's,\.\./version\.config,version.config,' configure.in
+# bash is needed because of exec -a; avoid hiding dependency by env
+%{__sed} -i -e '1s,#!/usr/bin/env bash,#!/bin/bash,' mdtool.in monodevelop.in
 
 %build
 %{__aclocal}
