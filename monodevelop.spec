@@ -23,7 +23,7 @@ BuildRequires:	automake >= 1:1.10
 # gconf-sharp, gnome-sharp, gnome-vfs-sharp
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.8
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	mono-csharp >= 3.0.4
 BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
