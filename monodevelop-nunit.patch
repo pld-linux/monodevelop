@@ -1,0 +1,74 @@
+--- monodevelop-5.10/external/nrefactory/ICSharpCode.NRefactory.Tests/ICSharpCode.NRefactory.Tests.csproj.orig	2015-08-25 14:50:24.000000000 +0200
++++ monodevelop-5.10/external/nrefactory/ICSharpCode.NRefactory.Tests/ICSharpCode.NRefactory.Tests.csproj	2016-02-02 15:52:16.409057633 +0100
+@@ -92,7 +92,7 @@
+     <Reference Include="System.Xml" />
+     <Reference Include="System.Xml.Linq" />
+     <Reference Include="nunit.framework">
+-      <HintPath>$(CecilHintPath)</HintPath>
++      <HintPath>/usr/lib/mono/nunit2/nunit.framework.dll</HintPath>
+     </Reference>
+   </ItemGroup>
+   <ItemGroup>
+--- monodevelop-5.10/src/addins/NUnit/MonoDevelop.NUnit.csproj.orig	2015-11-17 15:29:49.000000000 +0100
++++ monodevelop-5.10/src/addins/NUnit/MonoDevelop.NUnit.csproj	2016-02-02 16:09:26.535681106 +0100
+@@ -64,16 +64,16 @@
+     <Reference Include="System.Xml.Linq" />
+     <Reference Include="System.Core" />
+     <Reference Include="nunit.framework">
+-      <HintPath>..\..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
++      <HintPath>/usr/lib/mono/nunit2/nunit.framework.dll</HintPath>
+     </Reference>
+     <Reference Include="nunit.core">
+-      <HintPath>..\..\..\packages\NUnit.Runners.2.6.4\tools\lib\nunit.core.dll</HintPath>
++      <HintPath>/usr/lib/mono/nunit2/nunit.core.dll</HintPath>
+     </Reference>
+     <Reference Include="nunit.core.interfaces">
+-      <HintPath>..\..\..\packages\NUnit.Runners.2.6.4\tools\lib\nunit.core.interfaces.dll</HintPath>
++      <HintPath>/usr/lib/mono/nunit2/nunit.core.interfaces.dll</HintPath>
+     </Reference>
+     <Reference Include="nunit.util">
+-      <HintPath>..\..\..\packages\NUnit.Runners.2.6.4\tools\lib\nunit.util.dll</HintPath>
++      <HintPath>/usr/lib/mono/nunit2/nunit.util.dll</HintPath>
+     </Reference>
+   </ItemGroup>
+   <ItemGroup>
+--- monodevelop-5.10/src/addins/NUnit/NUnitRunner/NUnitRunner.csproj.orig	2015-11-17 15:29:49.000000000 +0100
++++ monodevelop-5.10/src/addins/NUnit/NUnitRunner/NUnitRunner.csproj	2016-02-02 21:00:40.961614328 +0100
+@@ -38,13 +38,13 @@
+     <Reference Include="System" />
+     <Reference Include="System.Xml" />
+     <Reference Include="nunit.framework">
+-      <HintPath>..\..\..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
++    <HintPath>/usr/lib/mono/nunit2/nunit.framework.dll</HintPath>
+     </Reference>
+     <Reference Include="nunit.core">
+-      <HintPath>..\..\..\..\packages\NUnit.Runners.2.6.4\tools\lib\nunit.core.dll</HintPath>
++    <HintPath>/usr/lib/mono/nunit2/nunit.core.dll</HintPath>
+     </Reference>
+     <Reference Include="nunit.core.interfaces">
+-      <HintPath>..\..\..\..\packages\NUnit.Runners.2.6.4\tools\lib\nunit.core.interfaces.dll</HintPath>
++    <HintPath>/usr/lib/mono/nunit2/nunit.core.interfaces.dll</HintPath>
+     </Reference>
+   </ItemGroup>
+   <ItemGroup>
+--- monodevelop-5.10/tests/UserInterfaceTests/UserInterfaceTests.csproj.orig	2015-11-17 15:29:49.000000000 +0100
++++ monodevelop-5.10/tests/UserInterfaceTests/UserInterfaceTests.csproj	2016-02-02 21:42:04.534843509 +0100
+@@ -53,15 +53,15 @@
+       <Private>False</Private>
+     </Reference>
+     <Reference Include="nunit.core">
+-      <HintPath>..\..\packages\NUnit.Runners.2.6.4\tools\lib\nunit.core.dll</HintPath>
++    <HintPath>/usr/lib/mono/nunit2/nunit.core.dll</HintPath>
+       <Private>False</Private>
+     </Reference>
+     <Reference Include="nunit.framework">
+-      <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
++    <HintPath>/usr/lib/mono/nunit2/nunit.framework.dll</HintPath>
+       <Private>False</Private>
+     </Reference>
+     <Reference Include="nunit.core.interfaces">
+-      <HintPath>..\..\packages\NUnit.Runners.2.6.4\tools\lib\nunit.core.interfaces.dll</HintPath>
++    <HintPath>/usr/lib/mono/nunit2/nunit.core.interfaces.dll</HintPath>
+       <Private>False</Private>
+     </Reference>
+     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />

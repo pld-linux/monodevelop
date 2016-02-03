@@ -1,12 +1,12 @@
-diff -ur monodevelop-0.10/monodevelop.desktop monodevelop-0.10-desktop_patch/monodevelop.desktop
---- monodevelop-0.10/monodevelop.desktop	2006-04-04 21:29:37.000000000 +0200
-+++ monodevelop-0.10-desktop_patch/monodevelop.desktop	2006-04-05 18:13:56.000000000 +0200
-@@ -3,7 +3,9 @@
- Encoding=UTF-8
+--- monodevelop-5.10/monodevelop.desktop.orig	2016-01-19 19:01:00.872841006 +0100
++++ monodevelop-5.10/monodevelop.desktop	2016-01-19 19:56:27.892701384 +0100
+@@ -4,8 +4,10 @@
  Name=MonoDevelop
  GenericName=Integrated Development Environment
+ GenericName[ja]=統合開発環境
 +GenericName[pl]=Zintegrowane Środowisko Programistyczne
  Comment=Develop .NET applications in an Integrated Development Environment
+ Comment[ja]=.NETアプリケーション開発を行うための統合開発環境
 +Comment[pl]=Rozwijaj aplikacje .NET w Zintegrowanym Środowisku Programistycznym
  Exec=monodevelop %F
  TryExec=monodevelop

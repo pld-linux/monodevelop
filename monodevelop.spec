@@ -1,3 +1,4 @@
+# TODO: use system libgit2, libgit2sharp, nunit, mono-addins
 #
 # Conditional build:
 %bcond_without	subversion	# disable subversion backend
@@ -7,22 +8,28 @@
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
-%define	mainver	5.0.1
-%define	subver	0
-Version:	%{mainver}.%{subver}
+Version:	5.10.0.871
 Release:	1
 # most of code is MIT-licensed, some parts LGPL v2
 License:	LGPL v2, MIT
 Group:		Development/Tools
-Source0:	http://download.mono-project.com/sources/monodevelop/%{name}-%{mainver}-%{subver}.tar.bz2
-# Source0-md5:	5f68aa384c7aa473fdd36da2f70117b4
+Source0:	http://download.mono-project.com/sources/monodevelop/%{name}-%{version}.tar.bz2
+# Source0-md5:	4722cbbaeb7a518dceea8147e6cb6181
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-aspnet.patch
+Patch2:		%{name}-nunit.patch
+Patch3:		%{name}-avoidgiterrors.patch
+Patch4:		%{name}-nuget-unbundle.patch
+Patch5:		%{name}-no-nuget-packages.patch
 URL:		http://monodevelop.com/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.10
 # gconf-sharp, gnome-sharp, gnome-vfs-sharp
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.8
+BuildRequires:	dotnet-newtonsoft-json-devel >= 6.0
+BuildRequires:	dotnet-nuget-devel
+BuildRequires:	dotnet-nunit2 >= 2.6.4
 BuildRequires:	gettext-tools
 BuildRequires:	mono-csharp >= 3.0.4
 BuildRequires:	monodoc >= 1.0
@@ -86,12 +93,20 @@ możliwości, a wśród nich:
   pomagającymi zacząć tworzyć aplikacje konsolowe, Gnome# albo Gtk#.
 
 %prep
-%setup -q -n %{name}-%{mainver}
+%setup -q -n monodevelop-5.10
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
 
 %{__sed} -i -e 's,\.\./version\.config,version.config,' configure.in
 # bash is needed because of exec -a; avoid hiding dependency by env
 %{__sed} -i -e '1s,#!/usr/bin/env bash,#!/bin/bash,' mdtool.in monodevelop.in
+
+# fake target
+touch restore-packages
 
 %build
 %{__aclocal}
@@ -101,6 +116,11 @@ możliwości, a wśród nich:
 	--disable-update-mimedb \
 	--disable-update-desktopdb \
 	%{?with_subversion:--enable-subversion}
+
+cd external/libgit2sharp/Lib/CustomBuildTasks
+xbuild CustomBuildTasks.csproj /property:Configuration=Release
+ln -snf bin/Release/CustomBuildTasks.dll .
+cd ../../../..
 
 %{__make} -j1
 
@@ -140,7 +160,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/monodevelop.desktop
 %{_pkgconfigdir}/monodevelop-core-addins.pc
 %{_pkgconfigdir}/monodevelop.pc
-%{_iconsdir}/hicolor/*/apps/monodevelop.png
-%{_iconsdir}/hicolor/*/apps/monodevelop.svg
+%{_iconsdir}/hicolor/*x*/apps/monodevelop.png
+%{_iconsdir}/hicolor/scalable/apps/monodevelop.svg
 %{_mandir}/man1/mdtool.1*
 %{_mandir}/man1/monodevelop.1*
