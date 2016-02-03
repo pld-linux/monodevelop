@@ -21,6 +21,7 @@ Patch2:		%{name}-nunit.patch
 Patch3:		%{name}-avoidgiterrors.patch
 Patch4:		%{name}-nuget-unbundle.patch
 Patch5:		%{name}-no-nuget-packages.patch
+Patch6:		%{name}-json.patch
 URL:		http://monodevelop.com/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.10
@@ -100,6 +101,7 @@ możliwości, a wśród nich:
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %{__sed} -i -e 's,\.\./version\.config,version.config,' configure.in
 # bash is needed because of exec -a; avoid hiding dependency by env
