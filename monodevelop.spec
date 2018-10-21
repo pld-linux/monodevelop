@@ -26,6 +26,7 @@ URL:		http://monodevelop.com/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.10
 # gconf-sharp, gnome-sharp, gnome-vfs-sharp
+BuildRequires:	dotnet-gconf-sharp-devel
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.8
 BuildRequires:	dotnet-newtonsoft-json-devel >= 6.0
