@@ -3,7 +3,6 @@
 # Conditional build:
 %bcond_without	subversion	# disable subversion backend
 #
-%include	/usr/lib/rpm/macros.mono
 #
 Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
