@@ -8,7 +8,7 @@ Summary:	Mono IDE
 Summary(pl.UTF-8):	IDE dla Mono
 Name:		monodevelop
 Version:	5.10.0.871
-Release:	3
+Release:	4
 # most of code is MIT-licensed, some parts LGPL v2
 License:	LGPL v2, MIT
 Group:		Development/Tools
@@ -21,6 +21,7 @@ Patch3:		%{name}-avoidgiterrors.patch
 Patch4:		%{name}-nuget-unbundle.patch
 Patch5:		%{name}-no-nuget-packages.patch
 Patch6:		%{name}-json.patch
+Patch7:		%{name}-libgit2-openssl.patch
 URL:		http://monodevelop.com/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.10
@@ -45,7 +46,6 @@ Requires:	dotnet-gtk-sharp2 >= 2.12.8
 Requires:	hicolor-icon-theme
 Requires:	pkgconfig
 %{?with_subversion:Requires:	subversion-libs}
-Requires:	xulrunner-libs
 Suggests:	ctags
 Suggests:	mono-compat-links >= 3.0.4
 Suggests:	mono-csharp >= 3.0.4
@@ -102,6 +102,7 @@ możliwości, a wśród nich:
 %patch -P4 -p1
 %patch -P5 -p1
 %patch -P6 -p1
+%patch -P7 -p1
 
 %{__sed} -i -e 's,\.\./version\.config,version.config,' configure.in
 # bash is needed because of exec -a; avoid hiding dependency by env

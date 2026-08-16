@@ -1,0 +1,140 @@
+Build bundled libgit2 against OpenSSL 1.1+.
+
+BIO_METHOD became opaque in OpenSSL 1.1, so the static initialiser and the
+b->ptr / b->init accesses no longer compile.  Build the method at runtime
+instead, from init_ssl() which libgit2 already runs exactly once, and reach
+the stream through BIO_get_data()/BIO_set_data().
+
+--- monodevelop-5.10/external/libgit2/src/openssl_stream.c
++++ monodevelop-5.10/external/libgit2/src/openssl_stream.c
+@@ -33,10 +33,9 @@
+ 
+ static int bio_create(BIO *b)
+ {
+-	b->init = 1;
+-	b->num = 0;
+-	b->ptr = NULL;
+-	b->flags = 0;
++	BIO_set_init(b, 1);
++	BIO_set_data(b, NULL);
++	BIO_clear_flags(b, ~0);
+ 
+ 	return 1;
+ }
+@@ -46,23 +45,22 @@
+ 	if (!b)
+ 		return 0;
+ 
+-	b->init = 0;
+-	b->num = 0;
+-	b->ptr = NULL;
+-	b->flags = 0;
++	BIO_set_init(b, 0);
++	BIO_set_data(b, NULL);
++	BIO_clear_flags(b, ~0);
+ 
+ 	return 1;
+ }
+ 
+ static int bio_read(BIO *b, char *buf, int len)
+ {
+-	git_stream *io = (git_stream *) b->ptr;
++	git_stream *io = (git_stream *) BIO_get_data(b);
+ 	return (int) git_stream_read(io, buf, len);
+ }
+ 
+ static int bio_write(BIO *b, const char *buf, int len)
+ {
+-	git_stream *io = (git_stream *) b->ptr;
++	git_stream *io = (git_stream *) BIO_get_data(b);
+ 	return (int) git_stream_write(io, buf, len, 0);
+ }
+ 
+@@ -91,17 +89,31 @@
+ 	return bio_write(b, str, strlen(str));
+ }
+ 
+-static BIO_METHOD git_stream_bio_method = {
+-	BIO_TYPE_SOURCE_SINK,
+-	"git_stream",
+-	bio_write,
+-	bio_read,
+-	bio_puts,
+-	bio_gets,
+-	bio_ctrl,
+-	bio_create,
+-	bio_destroy
+-};
++static BIO_METHOD *git_stream_bio_method;
++
++/* BIO_METHOD is opaque since OpenSSL 1.1, so it has to be built at runtime.
++ * Called once from init_ssl(). */
++int git_openssl_stream_global_init(void)
++{
++	int type = BIO_get_new_index();
++
++	if (type == -1)
++		return -1;
++
++	git_stream_bio_method = BIO_meth_new(type | BIO_TYPE_SOURCE_SINK, "git_stream");
++	if (!git_stream_bio_method)
++		return -1;
++
++	BIO_meth_set_write(git_stream_bio_method, bio_write);
++	BIO_meth_set_read(git_stream_bio_method, bio_read);
++	BIO_meth_set_puts(git_stream_bio_method, bio_puts);
++	BIO_meth_set_gets(git_stream_bio_method, bio_gets);
++	BIO_meth_set_ctrl(git_stream_bio_method, bio_ctrl);
++	BIO_meth_set_create(git_stream_bio_method, bio_create);
++	BIO_meth_set_destroy(git_stream_bio_method, bio_destroy);
++
++	return 0;
++}
+ 
+ static int ssl_set_error(SSL *ssl, int error)
+ {
+@@ -318,9 +330,9 @@
+ 	if ((ret = git_stream_connect(st->io)) < 0)
+ 		return ret;
+ 
+-	bio = BIO_new(&git_stream_bio_method);
++	bio = BIO_new(git_stream_bio_method);
+ 	GITERR_CHECK_ALLOC(bio);
+-	bio->ptr = st->io;
++	BIO_set_data(bio, st->io);
+ 
+ 	SSL_set_bio(st->ssl, bio, bio);
+ 	/* specify the host in case SNI is needed */
+--- monodevelop-5.10/external/libgit2/src/openssl_stream.h
++++ monodevelop-5.10/external/libgit2/src/openssl_stream.h
+@@ -9,6 +9,7 @@
+ 
+ #include "git2/sys/stream.h"
+ 
++extern int git_openssl_stream_global_init(void);
+ extern int git_openssl_stream_new(git_stream **out, const char *host, const char *port);
+ 
+ #endif
+--- monodevelop-5.10/external/libgit2/src/global.c
++++ monodevelop-5.10/external/libgit2/src/global.c
+@@ -90,6 +90,8 @@
+ }
+ #endif
+ 
++#include "openssl_stream.h"
++
+ static void init_ssl(void)
+ {
+ #ifdef GIT_OPENSSL
+@@ -115,6 +117,11 @@
+ 	if (!SSL_CTX_set_default_verify_paths(git__ssl_ctx)) {
+ 		SSL_CTX_free(git__ssl_ctx);
+ 		git__ssl_ctx = NULL;
++		return;
++	}
++	if (git_openssl_stream_global_init() < 0) {
++		SSL_CTX_free(git__ssl_ctx);
++		git__ssl_ctx = NULL;
+ 	}
+ #endif
+ }
